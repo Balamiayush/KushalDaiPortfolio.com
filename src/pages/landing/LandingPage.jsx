@@ -1,9 +1,13 @@
 import MainNavbar from "@/shared/components/layouts/header/navbar/MainNavbar";
 import WorkPage from "./components/WorkPage";
 import Copy from "@/shared/components/ui/Animated/textAnim/Copy";
+import Jourany from "./components/Jourany";
+import WorkCaseStudy from "./components/WorkCaseStudy";
 
 export default function LandingPage() {
   return (
+    <section>
+
     <div className="relative mx-auto w-full px-[24px] py-[24px] ">
       <section className="2xl:h-[90vh] h-full w-full rounded-[24px] bg-[#DAD3FF] px-[24px] py-[24px] xl:h-[723px] flex flex-col justify-between">
         <MainNavbar />
@@ -31,7 +35,11 @@ export default function LandingPage() {
          
         </div>
       </section>
-      <WorkPage />
+     
     </div>
+     <WorkPage />
+      <Jourany/>
+      <WorkCaseStudy/>
+    </section>
   );
 }

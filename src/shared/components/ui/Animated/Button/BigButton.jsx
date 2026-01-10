@@ -1,15 +1,48 @@
-import ButtonArrow from '@/shared/components/icons/ButtonArrow'
-import React from 'react'
+import ButtonArrow from "@/shared/components/icons/ButtonArrow";
+import React from "react";
 
-const BigButton = () => {
+const BigButton = ({
+  children,
+  variant = "secondary",
+  size = "lg",
+  href = "#",
+  showArrow = true,
+}) => {
+  const variants = {
+    primary: "bg-black text-white border-black hover:bg-black/90",
+    secondary:
+      "bg-transparent text-[#6F6C7D] border-[#6F6C7D] hover:bg-[#6F6C7D]/10",
+    outline:
+      "bg-white text-black border-black hover:bg-black hover:text-white",
+    danger: "bg-red-600 text-white border-red-600 hover:bg-red-700",
+  };
+
+  const sizes = {
+    sm: "px-[16px] py-[8px] h-[30px] text-[12px]",
+    md: "w-[240px] h-[40px]",
+    lg: "w-[292px] h-[48px]",
+  };
+
   return (
-    <div className="w-[292px] h-[40px] opacity-100 rounded-[100px] gap-[10px] border py-[12px] px-[16px] flex items-center justify-center">
-        <a href="#" className='flex items-center gap-[10px] text-[#6F6C7D]'>
-            <span>Let’s turn your ideas into reality</span>
-            <ButtonArrow />
-        </a>
-    </div>
-  )
-}
+    <a
+      href={href}
+      className={`
+        rounded-[100px]
+        border
+        flex
+        items-center
+        justify-center
+        gap-[10px]
+        transition-all
+        duration-300
+        ${sizes[size]}
+        ${variants[variant]}
+      `}
+    >
+      <span>{children}</span>
+      {showArrow && <ButtonArrow className="stroke-current" />}
+    </a>
+  );
+};
 
-export default BigButton
+export default BigButton;

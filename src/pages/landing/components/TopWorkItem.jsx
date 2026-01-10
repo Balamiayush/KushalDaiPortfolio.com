@@ -1,27 +1,68 @@
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 import WorkItem from "./WorkItem";
+import { workData } from "../data/work-data";
 
+const TopData = ({ activeIndex, onTitleClick }) => {
+  const numberRef = useRef(null);
+  const textRef = useRef(null);
 
-const workList = [
-  { title: "Cr8rs", active: true },
-  { title: "AfrikaPro" },
-  { title: "Market 33" },
-];
+  useEffect(() => {
+    gsap.to(numberRef.current, {
+      y: -activeIndex * 120,
+      duration: 0.6,
+      ease: "power3.out",
+    });
 
-const TopData = () => {
+    gsap.to(textRef.current, {
+      y: -activeIndex * 160,
+      duration: 0.6,
+      ease: "power3.out",
+    });
+  }, [activeIndex]);
+
   return (
-    <div className="sticky top-0 w-[457px] h-[535px] flex flex-col gap-8 ">
-      <h3 className="font-[SansPlomb] text-[120px] leading-[96%] tracking-[0.01em] text-[#9897A3]">
-        01
-      </h3>
+    <div className="sticky top-[4vw] flex h-[535px] w-[457px] flex-col gap-8">
+      {/* NUMBERS */}
+      <div className="relative h-[120px] overflow-hidden">
+        <div ref={numberRef}>
+          {["01", "02", "03"].map((num) => (
+            <h3
+              key={num}
+              className="font-[SansPlomb] text-[120px] leading-[96%] tracking-[0.01em] text-[#9897A3]"
+            >
+              {num}
+            </h3>
+          ))}
+        </div>
+      </div>
 
-      <div className="flex flex-col xl:max-w-[117px] text-nowrap   gap-4">
-        {workList.map((item) => (
+      {/* TITLES */}
+      <div className="flex flex-col gap-4">
+        {workData.map((item, i) => (
           <WorkItem
             key={item.title}
             title={item.title}
-            active={item.active}
+            active={i === activeIndex}
+            onClick={() => onTitleClick(i)}
           />
         ))}
+      </div>
+
+      {/* DESCRIPTION */}
+      <div className="absolute bottom-0 h-[160px] w-[457px] overflow-hidden">
+        <div ref={textRef}>
+          {workData.map((item) => (
+            <div key={item.title} className="flex flex-col gap-[24px]">
+              <h3 className="font-[SansPlomb] text-[60px] leading-[96%] text-[#5E4CBB]">
+                {item.title}
+              </h3>
+              <p className="max-w-[450px] text-[18px] text-[#6F6C7D]">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
