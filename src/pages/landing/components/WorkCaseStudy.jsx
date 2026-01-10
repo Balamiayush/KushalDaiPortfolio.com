@@ -12,7 +12,7 @@ const WorkCaseStudy = () => {
   const smoothEase = [0.33, 1, 0.68, 1];
 
   return (
-    <section className="bg-[#F3F2FF] py-[60px] min-h-screen">
+    <section className=" py-[60px] min-h-screen">
       <LayoutWrapper>
         <div className="flex flex-col">
           {workCaseStudyData.map(

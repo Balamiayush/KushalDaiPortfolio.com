@@ -7,11 +7,13 @@ import AppRoutes from "./routes/AppRoutes";
 
 import "./styles/index.css";
 import AppLenis from "./shared/hooks/Lenis";
+import Footer from "./shared/components/layouts/footer/Footer";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AppLenis>
     <RouterProvider router={AppRoutes} />
+    <Footer/>
     </AppLenis>
   </StrictMode>,
 );

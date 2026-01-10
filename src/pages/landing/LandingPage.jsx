@@ -4,6 +4,7 @@ import Copy from "@/shared/components/ui/Animated/textAnim/Copy";
 import Jourany from "./components/Jourany";
 import WorkCaseStudy from "./components/WorkCaseStudy";
 import HowWeWork from "./components/HowWeWork";
+import FAQSection from "./components/FAQSection";
 import GallerySection from "./components/GallerySection";
 export default function LandingPage() {
   return (
@@ -45,6 +46,7 @@ export default function LandingPage() {
       <HowWeWork/>
       </div>
       <GallerySection/>
+      <FAQSection/>
     </section>
   );
 }

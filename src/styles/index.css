@@ -9,6 +9,7 @@
 
 body {
   font-family: 'Manrope', sans-serif;
+  background: #faf9ff;
 }
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
