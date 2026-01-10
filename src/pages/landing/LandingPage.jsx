@@ -3,7 +3,8 @@ import WorkPage from "./components/WorkPage";
 import Copy from "@/shared/components/ui/Animated/textAnim/Copy";
 import Jourany from "./components/Jourany";
 import WorkCaseStudy from "./components/WorkCaseStudy";
-
+import HowWeWork from "./components/HowWeWork";
+import GallerySection from "./components/GallerySection";
 export default function LandingPage() {
   return (
     <section>
@@ -40,6 +41,10 @@ export default function LandingPage() {
      <WorkPage />
       <Jourany/>
       <WorkCaseStudy/>
+      <div className="w-full h-full overflow-hidden">
+      <HowWeWork/>
+      </div>
+      <GallerySection/>
     </section>
   );
 }

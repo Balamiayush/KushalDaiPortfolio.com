@@ -14,7 +14,8 @@ const BigButton = ({
       "bg-transparent text-[#6F6C7D] border-[#6F6C7D] hover:bg-[#6F6C7D]/10",
     outline:
       "bg-white text-black border-black hover:bg-black hover:text-white",
-    danger: "bg-red-600 text-white border-red-600 hover:bg-red-700",
+    purple:"bg-[#5E4FC4] text-white border-[#5E4FC4] hover:bg-[#5E4FC4]/90",
+    
   };
 
   const sizes = {

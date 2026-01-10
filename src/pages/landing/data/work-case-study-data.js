@@ -8,7 +8,7 @@ export const workCaseStudyData = [
     image:
       "https://res.cloudinary.com/dfajjqglx/image/upload/v1768050218/Frame_1618873887_v5skei.png",
     tags: ["Logo Design", "Brand Guidelines", "Color System"],
-    on:true
+    on:false
   },
   {
     id: 2,
