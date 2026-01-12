@@ -18,11 +18,11 @@ const HowWeWork = () => {
     scrollTrigger: {
       trigger: container,
       start: "top top",
-      end: () => `+=${scrollWidth}`,
+      end: () => `+=${scrollWidth} `,
       scrub: 1,
       pin: true,
       anticipatePin: 1,
-      
+      markers: true,
       invalidateOnRefresh: true,
     },
   });

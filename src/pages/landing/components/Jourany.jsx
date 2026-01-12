@@ -46,7 +46,7 @@ const Journey = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-[946px] w-full items-center justify-center py-20"
+      className="relative flex h-[946px]  w-full items-center justify-center py-20"
     >
       <LayoutWrapper>
         <div className="mx-auto max-w-5xl">

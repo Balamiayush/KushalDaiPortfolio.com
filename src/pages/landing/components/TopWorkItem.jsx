@@ -10,13 +10,15 @@ const TopData = ({ activeIndex, onTitleClick }) => {
   useEffect(() => {
     gsap.to(numberRef.current, {
       y: -activeIndex * 120,
-      duration: 0.6,
+      duration: 1,
+      delay: 0.4,
       ease: "power3.out",
     });
 
     gsap.to(textRef.current, {
       y: -activeIndex * 160,
-      duration: 0.6,
+      duration: 1,
+      delay: 0.4,
       ease: "power3.out",
     });
   }, [activeIndex]);
