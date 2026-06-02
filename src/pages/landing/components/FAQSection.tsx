@@ -12,7 +12,7 @@ type FAQItemProps = {
 };
 
 const FAQSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeId, setActiveId] = useState<string | null>(faqData[0]?.id ?? null);
 
   return (
     <section className='w-full min-h-screen py-[120px] '>
@@ -25,12 +25,12 @@ const FAQSection = () => {
 
           {/* FAQ List */}
           <div className="flex flex-col gap-2">
-            {faqData.map((faq, index) => (
+            {faqData.map((faq) => (
               <FAQItem
-                key={index}
+                key={faq.id}
                 faq={faq}
-                isOpen={activeIndex === index}
-                onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
+                isOpen={activeId === faq.id}
+                onClick={() => setActiveId(activeId === faq.id ? null : faq.id)}
               />
             ))}
           </div>
@@ -48,7 +48,9 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
       }`}
     >
       <button
+        type="button"
         onClick={onClick}
+        aria-expanded={isOpen}
         className="w-full flex items-center justify-between text-left px-8 py-7 group"
       >
         <span className="text-[#4A494E] text-[24px] font-medium tracking-tight">
