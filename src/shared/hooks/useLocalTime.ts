@@ -1,26 +1,27 @@
-// hooks/useLocalTime.js
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useLocalTime(timeZone = "Asia/Kathmandu") {
   const [time, setTime] = useState("");
 
-  useEffect(() => {
-    const updateTime = () => {
-      const formatter = new Intl.DateTimeFormat("en-US", {
+  const formatter = useMemo(
+    () =>
+      new Intl.DateTimeFormat("en-US", {
         hour: "2-digit",
         minute: "2-digit",
         hour12: true,
         timeZone,
-      });
+      }),
+    [timeZone]
+  );
 
-      setTime(formatter.format(new Date()));
-    };
+  useEffect(() => {
+    const updateTime = () => setTime(formatter.format(new Date()));
 
     updateTime();
-    const interval = setInterval(updateTime, 60000); // update every minute
+    const interval = setInterval(updateTime, 60_000);
 
     return () => clearInterval(interval);
-  }, [timeZone]);
+  }, [formatter]);
 
   return time;
 }

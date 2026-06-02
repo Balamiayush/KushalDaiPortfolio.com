@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import LayoutWrapper from "@/shared/components/layouts/wrapper/LayoutWrapper";
 import BigButton from "@/shared/components/ui/Animated/Button/BigButton";
 import { workCaseStudyData } from "../data/work-case-study-data";
 
+const SMOOTH_EASE = [0.33, 1, 0.68, 1] as const;
+
 const WorkCaseStudy = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-
-  const smoothEase = [0.33, 1, 0.68, 1] as const;
 
   return (
     <section className=" py-[60px] min-h-screen">
@@ -18,7 +18,7 @@ const WorkCaseStudy = () => {
               const isHovered = hoveredId === id;
 
               return (
-                <motion.div
+                <m.div
                   key={id}
                   tabIndex={0}
                   role="button"
@@ -42,11 +42,11 @@ const WorkCaseStudy = () => {
 
                     <AnimatePresence>
                       {isHovered && (
-                        <motion.div
+                        <m.div
                           initial={{ width: 0, opacity: 0, scale: 0.9 }}
                           animate={{ width: "auto", opacity: 1, scale: 1 }}
                           exit={{ width: 0, opacity: 0, scale: 0.9 }}
-                          transition={{ duration: 0.6, ease: smoothEase }}
+                          transition={{ duration: 0.6, ease: SMOOTH_EASE }}
                           className="overflow-hidden"
                         >
                           <img
@@ -56,7 +56,7 @@ const WorkCaseStudy = () => {
                             decoding="async"
                             className="block  object-cover rounded-lg"
                           />
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
                   </div>
@@ -74,11 +74,11 @@ const WorkCaseStudy = () => {
 
                       <AnimatePresence>
                         {isHovered && (
-                          <motion.div
+                          <m.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.5, ease: smoothEase }}
+                            transition={{ duration: 0.5, ease: SMOOTH_EASE }}
                             className="overflow-hidden"
                           >
                             <p className="max-w-[440px] text-[18px] leading-[140%] font-light tracking-[0.01em] text-[#5D5C69] mb-12">
@@ -92,12 +92,12 @@ const WorkCaseStudy = () => {
                                 </BigButton>
                               ))}
                             </div>
-                          </motion.div>
+                          </m.div>
                         )}
                       </AnimatePresence>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               );
             }
           )}

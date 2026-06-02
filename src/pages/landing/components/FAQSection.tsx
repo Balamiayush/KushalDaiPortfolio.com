@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import LayoutWrapper from '@/shared/components/layouts/wrapper/LayoutWrapper';
 import { faqData } from '../data/faq-data';
 
@@ -58,7 +58,7 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
         </span>
 
         {/* Arrow Icon */}
-        <motion.span
+        <m.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="text-[#98979D]"
@@ -66,12 +66,12 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
-        </motion.span>
+        </m.span>
       </button>
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -83,7 +83,7 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
                 {faq.answer}
               </p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

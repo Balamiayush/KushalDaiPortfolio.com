@@ -49,9 +49,7 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }: Co
           });
 
           split.lines.forEach((line) => {
-            const lineEl = line as HTMLElement;
-            lineEl.style.overflow = "visible";
-            lineEl.style.display = "block";
+            (line as HTMLElement).style.cssText += ";overflow:visible;display:block";
           });
 
           const computedStyle = window.getComputedStyle(element);
