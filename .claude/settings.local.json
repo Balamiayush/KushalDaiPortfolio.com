@@ -6,7 +6,8 @@
       "Bash(xargs -0 -I {} sh -c 'git mv \"$1\" \"${1%.js}.ts\"' _ {})",
       "Bash(git mv *)",
       "Bash(npx tsc *)",
-      "Bash(echo \"EXIT: $?\")"
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(git rm *)"
     ]
   }
 }
