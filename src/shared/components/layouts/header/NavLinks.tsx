@@ -32,7 +32,7 @@ export default function NavLinks() {
 
       <div className="flex items-center gap-[32px]">
         <div className="flex items-start gap-2">
-          <div className="circlee bg-[#008C07] w-[8px] h-[8px] rounded-full mt-[2px] outline-2 outline-[#008C0733]" />
+          <div className="circlee bg-[#008C07] size-[8px] rounded-full mt-[2px] outline-2 outline-[#008C0733]" />
           <div className="flex flex-col leading-tight">
             <p className="font-semibold text-[14px] text-[#1E1E1E]">
               Available for Project

@@ -3,8 +3,8 @@ import Copy from "@/shared/components/ui/Animated/textAnim/Copy";
 
 const HeroSection = () => {
   return (
-    <div className="relative mx-auto w-full px-[24px] py-[24px]">
-      <section className="relative flex h-full w-full flex-col justify-between rounded-[24px] bg-[#DAD3FF] px-[24px] py-[24px] xl:h-[723px] 2xl:h-[90vh]">
+    <div className="relative mx-auto w-full p-[24px]">
+      <section className="relative flex h-full w-full flex-col justify-between rounded-[24px] bg-[#DAD3FF] p-[24px] xl:h-[723px] 2xl:h-[90vh]">
         <img
           src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_2400/v1768109206/IMG_5475_qgszwk.png"
           fetchPriority="high"

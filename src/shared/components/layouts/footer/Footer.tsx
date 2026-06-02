@@ -1,34 +1,16 @@
 import LayoutWrapper from "../wrapper/LayoutWrapper";
 import ButtonArrow from "../../icons/ButtonArrow";
 import FooterKushalDai from "../../icons/FooterKushalDai";
+
+const socialMediaLinks = [
+  { id: 1, name: "Instagram", link: "" },
+  { id: 2, name: "Linkedin", link: "" },
+  { id: 3, name: "Behance", link: "" },
+  { id: 4, name: "Dribbble", link: "" },
+  { id: 5, name: "Whatsapp", link: "" },
+];
+
 const Footer = () => {
-  const socialMediaLinks = [
-    {
-      id: 1,
-      name: "Instagram",
-      link: "",
-    },
-    {
-      id: 2,
-      name: "Linkedin",
-      link: "",
-    },
-    {
-      id: 3,
-      name: "Behance",
-      link: "",
-    },
-    {
-      id: 4,
-      name: "Dribbble",
-      link: "",
-    },
-    {
-      id: 5,
-      name: "Whatsapp",
-      link: "",
-    },
-  ];
   return (
     <footer className="max-h-[575px] py-[120px] w-full flex flex-col items-center">
       <div className="flex flex-col w-full gap-[72px] " >
@@ -47,7 +29,7 @@ const Footer = () => {
               className="flex h-[80px] items-center gap-2 rounded-full bg-[#5E4FC4] px-[32px] py-[24px] text-[32px] leading-[100%] text-[#FAF9FF]"
             >
               <span>Book a 15-min Call</span>
-              <ButtonArrow className="w-[32px] h-[32px]" />
+              <ButtonArrow className="size-[32px]" />
             </a>
           </div>
         </LayoutWrapper>
