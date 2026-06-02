@@ -15,15 +15,13 @@ const FAQSection = () => {
   const [activeId, setActiveId] = useState<string | null>(faqData[0]?.id ?? null);
 
   return (
-    <section className='w-full min-h-screen py-[120px] '>
+    <section className='w-full py-16 md:py-24 lg:py-[120px]'>
       <LayoutWrapper>
         <div className="max-w-[900px] mx-auto">
-          {/* Heading */}
-          <h1 className="text-center font-[SansPlomb] text-[#1C1B1E] font-normal text-[60px] leading-tight tracking-[0.01em] mb-16">
+          <h1 className="text-center font-[SansPlomb] text-[#1C1B1E] font-normal text-[clamp(32px,6vw,60px)] leading-tight tracking-[0.01em] mb-10 md:mb-14 lg:mb-16">
             Frequently Asked Questions
           </h1>
 
-          {/* FAQ List */}
           <div className="flex flex-col gap-2">
             {faqData.map((faq) => (
               <FAQItem
@@ -51,17 +49,16 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
         type="button"
         onClick={onClick}
         aria-expanded={isOpen}
-        className="w-full flex items-center justify-between text-left px-8 py-7 group"
+        className="w-full flex items-center justify-between gap-4 text-left px-5 md:px-8 py-5 md:py-7 group"
       >
-        <span className="text-[#4A494E] text-[24px] font-medium tracking-tight">
+        <span className="text-[#4A494E] text-[16px] md:text-[20px] lg:text-[24px] font-medium tracking-tight">
           Q. {faq.question}
         </span>
 
-        {/* Arrow Icon */}
         <m.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[#98979D]"
+          className="shrink-0 text-[#98979D]"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -78,8 +75,8 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-8 pb-8 pt-0">
-              <p className="text-[#5F5C6D] text-[18px] leading-[1.6] max-w-[700px]">
+            <div className="px-5 md:px-8 pb-6 md:pb-8 pt-0">
+              <p className="text-[#5F5C6D] text-[15px] md:text-[17px] lg:text-[18px] leading-[1.6] max-w-[700px]">
                 {faq.answer}
               </p>
             </div>
