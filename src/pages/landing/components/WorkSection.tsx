@@ -11,7 +11,7 @@ import { workData } from "../data/work-data";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const WorkPage = () => {
+const WorkSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const imageRefs = useRef<Array<HTMLImageElement | null>>([]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -42,11 +42,14 @@ const WorkPage = () => {
     const target = imageRefs.current[index];
     if (!target) return;
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      target.scrollIntoView({ block: "start" });
+      return;
+    }
+
     gsap.to(window, {
-      scrollTo: {
-        y: target,
-        offsetY: 120,
-      },
+      scrollTo: { y: target, offsetY: 120 },
       duration: 1.2,
       ease: "expo.inOut",
     });
@@ -79,11 +82,14 @@ const WorkPage = () => {
             <div className="flex w-full flex-col items-end gap-[88px]">
               {workData.map((item, i) => (
                 <img
-                  key={i}
+                  key={item.id}
                   ref={(el) => {
                     imageRefs.current[i] = el;
                   }}
                   src={item.src}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-[535px] w-1/2 rounded-[12px]"
                 />
               ))}
@@ -95,4 +101,4 @@ const WorkPage = () => {
   );
 };
 
-export default WorkPage;
+export default WorkSection;

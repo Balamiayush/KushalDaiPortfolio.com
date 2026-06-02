@@ -8,40 +8,47 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Journey = () => {
-  const sectionRef = useRef(null);
-  const textRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const textRef = useRef<HTMLSpanElement | null>(null);
 
-  useGSAP(() => {
-    // Split ONLY text
-    const split = new SplitText(textRef.current, {
-      type: "words",
-      wordsClass: "journey-word",
-    });
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      let split: SplitText | null = null;
 
-    // Initial state
-    gsap.set(split.words, {
-      color: "#9897A3",
-    });
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        if (!textRef.current) return;
+        split = new SplitText(textRef.current, {
+          type: "words",
+          wordsClass: "journey-word",
+        });
 
-    // Scroll animation
-    gsap.to(split.words, {
-      color: "#1D1D1E",
-      ease: "none",
-      stagger: 1, // 👈 controls speed of reveal
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=120%",
-        scrub: 1.2, // 👈 slow & smooth
-        pin: true,
-        anticipatePin: 1,
-      },
-    });
+        gsap.set(split.words, { color: "#9897A3" });
 
-    return () => {
-      split.revert();
-    };
-  }, []);
+        gsap.to(split.words, {
+          color: "#1D1D1E",
+          ease: "none",
+          stagger: 1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=120%",
+            scrub: 1.2,
+            pin: true,
+            anticipatePin: 1,
+          },
+        });
+
+        return () => split?.revert();
+      });
+
+      return () => {
+        mm.revert();
+        split?.revert();
+      };
+    },
+    { scope: sectionRef }
+  );
 
   return (
     <section
@@ -56,7 +63,9 @@ const Journey = () => {
               <span className="mx-2 inline-block align-middle">
                 <img
                   className="h-[50px] w-[80px] rounded-full border border-gray-200 object-cover md:h-[70px] md:w-[110px]"
-                  src="https://res.cloudinary.com/dfajjqglx/image/upload/v1768032467/Rectangle_39918_fyk7pj.png"
+                  src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_220/v1768032467/Rectangle_39918_fyk7pj.png"
+                  loading="lazy"
+                  decoding="async"
                   alt="Early journey"
                 />
               </span>{" "}
@@ -65,7 +74,9 @@ const Journey = () => {
               <span className="mx-2 inline-block align-middle">
                 <img
                   className="h-[40px] w-[60px] rounded-full border border-gray-200 object-cover md:h-[60px] md:w-[90px]"
-                  src="https://res.cloudinary.com/dfajjqglx/image/upload/v1768048303/Rectangle_39919_haj0us.png"
+                  src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_180/v1768048303/Rectangle_39919_haj0us.png"
+                  loading="lazy"
+                  decoding="async"
                   alt="Growth"
                 />
               </span>{" "}
