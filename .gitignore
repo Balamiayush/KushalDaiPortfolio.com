@@ -27,3 +27,6 @@ dist-ssr
 # Environment variables
 .env.production
 .env.development
+# react-doctor diagnostics (local only)
+.react-doctor/
+.react-doctor.log
