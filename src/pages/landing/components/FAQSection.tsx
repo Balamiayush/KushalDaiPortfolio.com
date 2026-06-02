@@ -77,7 +77,7 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
             className="overflow-hidden"
           >
             <div className="px-8 pb-8 pt-0">
-              <p className="text-[#6F6C7D] text-[18px] leading-[1.6] max-w-[700px]">
+              <p className="text-[#5F5C6D] text-[18px] leading-[1.6] max-w-[700px]">
                 {faq.answer}
               </p>
             </div>

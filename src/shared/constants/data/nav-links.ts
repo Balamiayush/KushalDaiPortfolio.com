@@ -15,9 +15,9 @@ export const navLinks = [
     label: services.length,
   },
   {
-    id: "process",
-    title: "Process",
-    href: "/process",
+    id: "about",
+    title: "About",
+    href: "/about-us",
     label: null,
   },
 ];

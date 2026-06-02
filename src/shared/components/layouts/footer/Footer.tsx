@@ -43,7 +43,7 @@ const Footer = () => {
               </span>
             </p>
             <a
-              href="#"
+              href="mailto:kushal.design055@gmail.com?subject=Book%20a%2015-min%20call"
               className="flex h-[80px] items-center gap-2 rounded-full bg-[#5E4FC4] px-[32px] py-[24px] text-[32px] leading-[100%] text-[#FAF9FF]"
             >
               <span>Book a 15-min Call</span>
@@ -59,7 +59,7 @@ const Footer = () => {
           <div className="flex gap-[32px]">
             {
               socialMediaLinks.map((link) => (
-                  <a key={link.id} href={link.link} className="flex items-center gap-1 text-[#6F6C7D]">
+                  <a key={link.id} href={link.link} className="flex items-center gap-1 text-[#5F5C6D]">
               <p className="text-[18px] leading-[120%] font-medium tracking-[0.01em]">
                 {link.name}
               </p>

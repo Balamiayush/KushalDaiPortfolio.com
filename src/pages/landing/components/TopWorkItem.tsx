@@ -64,7 +64,7 @@ const TopData = ({ activeIndex, onTitleClick }: TopDataProps) => {
               <h3 className="font-[SansPlomb] text-[60px] leading-[96%] text-[#5E4CBB]">
                 {item.title}
               </h3>
-              <p className="max-w-[450px] text-[18px] text-[#6F6C7D]">
+              <p className="max-w-[450px] text-[18px] text-[#5F5C6D]">
                 {item.description}
               </p>
             </div>
