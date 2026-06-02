@@ -10,25 +10,29 @@ const HowWeWork = () => {
 
   useGSAP(
     () => {
-      const container = sectionRef.current;
-      const scroller = container?.querySelector<HTMLElement>(".sideScroll");
-      if (!container || !scroller) return;
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const container = sectionRef.current;
+        const scroller = container?.querySelector<HTMLElement>(".sideScroll");
+        if (!container || !scroller) return;
 
-      const scrollWidth = scroller.scrollWidth - container.offsetWidth;
+        const scrollWidth = scroller.scrollWidth - container.offsetWidth;
 
-      gsap.to(scroller, {
-        x: -scrollWidth * 1.6,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: () => `+=${scrollWidth} `,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
+        gsap.to(scroller, {
+          x: -scrollWidth * 1.6,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: () => `+=${scrollWidth} `,
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
       });
+      return () => mm.revert();
     },
     { scope: sectionRef }
   );

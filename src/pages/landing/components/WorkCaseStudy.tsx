@@ -20,9 +20,14 @@ const WorkCaseStudy = () => {
               return (
                 <motion.div
                   key={id}
+                  tabIndex={0}
+                  role="button"
+                  aria-expanded={isHovered}
                   onMouseEnter={() => setHoveredId(id)}
                   onMouseLeave={() => setHoveredId(null)}
-                  className="flex w-full justify-between items-start border-t border-[#D9D9DE] last:border-b py-10 cursor-pointer transition-colors duration-500"
+                  onFocus={() => setHoveredId(id)}
+                  onBlur={() => setHoveredId(null)}
+                  className="flex w-full justify-between items-start border-t border-[#D9D9DE] last:border-b py-10 cursor-pointer transition-colors duration-500 focus:outline-2 focus:outline-[#5C4ABB] focus:outline-offset-2"
                 >
                   {/* Left Section: Index & Image */}
                   <div className="flex items-center gap-[88px]">
@@ -47,6 +52,8 @@ const WorkCaseStudy = () => {
                           <img
                             src={image}
                             alt={title}
+                            loading="lazy"
+                            decoding="async"
                             className="block  object-cover rounded-lg"
                           />
                         </motion.div>

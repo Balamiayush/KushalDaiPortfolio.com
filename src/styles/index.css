@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
+/* TODO: SansPlomb_TRIAL is licensed for evaluation only — replace with licensed file before production. */
 @font-face {
   font-family: 'SansPlomb';
   src: url('/fonts/sans-plomb/SansPlomb_TRIAL-95.otf');
   font-weight: 400;
+  font-display: swap;
 }
 
 body {
