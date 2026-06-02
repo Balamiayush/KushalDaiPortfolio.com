@@ -53,16 +53,16 @@ const Journey = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-[946px]  w-full items-center justify-center py-20"
+      className="relative flex min-h-[600px] md:min-h-[760px] lg:min-h-[946px] w-full items-center justify-center py-16 md:py-20"
     >
       <LayoutWrapper>
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-center font-[SansPlomb] text-[40px] leading-none font-normal tracking-tight md:text-[64px]">
+          <h2 className="text-center font-[SansPlomb] text-[clamp(28px,5.5vw,64px)] leading-[110%] md:leading-none font-normal tracking-tight">
             <span ref={textRef}>
               <span className="text-[#1D1D1E]">A journey</span>{" "}
-              <span className="mx-2 inline-block align-middle">
+              <span className="mx-1 md:mx-2 inline-block align-middle">
                 <img
-                  className="h-[50px] w-[80px] rounded-full border border-gray-200 object-cover md:h-[70px] md:w-[110px]"
+                  className="h-[36px] w-[56px] sm:h-[50px] sm:w-[80px] rounded-full border border-gray-200 object-cover md:h-[70px] md:w-[110px]"
                   src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_220/v1768032467/Rectangle_39918_fyk7pj.png"
                   loading="lazy"
                   decoding="async"
@@ -71,9 +71,9 @@ const Journey = () => {
               </span>{" "}
               that began with curiosity and a blank screen evolved into a passion
               for crafting purposeful designs, shaped by creativity{" "}
-              <span className="mx-2 inline-block align-middle">
+              <span className="mx-1 md:mx-2 inline-block align-middle">
                 <img
-                  className="h-[40px] w-[60px] rounded-full border border-gray-200 object-cover md:h-[60px] md:w-[90px]"
+                  className="h-[30px] w-[44px] sm:h-[40px] sm:w-[60px] rounded-full border border-gray-200 object-cover md:h-[60px] md:w-[90px]"
                   src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_180/v1768048303/Rectangle_39919_haj0us.png"
                   loading="lazy"
                   decoding="async"
