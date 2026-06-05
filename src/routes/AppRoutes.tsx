@@ -1,0 +1,50 @@
+import { lazy, Suspense, type ComponentType } from "react";
+import { createBrowserRouter } from "react-router-dom";
+
+import PublicLayout from "@/layouts/PublicLayout";
+import NotFound from "@/pages/not-found/NotFound";
+
+import { ROUTES } from "@/shared/constants/routes";
+
+const LandingPage = lazy(() => import("@/pages/landing/LandingPage"));
+const AboutUsPage = lazy(() => import("@/pages/about-us/AboutUsPage"));
+const ServicesPage = lazy(() => import("@/pages/services/ServicesPage"));
+const WorkPage = lazy(() => import("@/pages/work/WorkPage"));
+const ContactPage = lazy(() => import("@/pages/contact/ContactPage"));
+
+const withSuspense = (Component: ComponentType) => (
+  <Suspense fallback={null}>
+    <Component />
+  </Suspense>
+);
+
+const AppRoutes = createBrowserRouter([
+  {
+    element: <PublicLayout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: ROUTES.LANDING_PAGE,
+        element: withSuspense(LandingPage),
+      },
+      {
+        path: ROUTES.ABOUT_US_PAGE,
+        element: withSuspense(AboutUsPage),
+      },
+      {
+        path: ROUTES.SERVICES_PAGE,
+        element: withSuspense(ServicesPage),
+      },
+      {
+        path: ROUTES.WORK_PAGE,
+        element: withSuspense(WorkPage),
+      },
+      {
+        path: ROUTES.CONTACT_PAGE,
+        element: withSuspense(ContactPage),
+      },
+    ],
+  },
+]);
+
+export default AppRoutes;
