@@ -18,9 +18,9 @@ const FAQSection = () => {
     <section className='w-full py-16 md:py-24 lg:py-[120px]'>
       <LayoutWrapper>
         <div className="max-w-[900px] mx-auto">
-          <h1 className="text-center font-[SansPlomb] text-[#1C1B1E] font-normal text-[clamp(32px,6vw,60px)] leading-tight tracking-[0.01em] mb-10 md:mb-14 lg:mb-16">
+          <h2 className="text-center font-[SansPlomb] text-[#1C1B1E] font-normal text-[clamp(32px,6vw,60px)] leading-tight tracking-[0.01em] mb-10 md:mb-14 lg:mb-16">
             Frequently Asked Questions
-          </h1>
+          </h2>
 
           <div className="flex flex-col gap-2">
             {faqData.map((faq) => (

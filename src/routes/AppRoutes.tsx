@@ -24,7 +24,7 @@ const AppRoutes = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: ROUTES.LANDING_PAGE,
+        index: true,
         element: withSuspense(LandingPage),
       },
       {
@@ -42,6 +42,10 @@ const AppRoutes = createBrowserRouter([
       {
         path: ROUTES.CONTACT_PAGE,
         element: withSuspense(ContactPage),
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

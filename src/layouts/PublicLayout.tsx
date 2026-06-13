@@ -1,22 +1,33 @@
 import { Fragment } from "react";
-
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { m, AnimatePresence } from "framer-motion";
 
 import MainNavbar from "@/shared/components/layouts/header/navbar/MainNavbar";
 import ScrollToTop from "@/shared/utils/scroll-to-top";
+import { EASE } from "@/shared/constants/motion";
 
 export default function PublicLayout() {
+  const location = useLocation();
+
   return (
     <Fragment>
       <ScrollToTop />
 
       <div className="relative">
-        <header className="absolute inset-x-0 top-0 z-50 px-6 pt-6 md:px-12 md:pt-12 lg:px-[48px] lg:pt-[48px]">
-          <MainNavbar />
-        </header>
+        <MainNavbar />
 
         <main>
-          <Outlet />
+          <AnimatePresence mode="wait">
+            <m.div
+              key={location.pathname}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, ease: EASE }}
+            >
+              <Outlet />
+            </m.div>
+          </AnimatePresence>
         </main>
       </div>
     </Fragment>

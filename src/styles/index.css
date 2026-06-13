@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-motion";
 
 /* TODO: SansPlomb_TRIAL is licensed for evaluation only — replace with licensed file before production. */
 @font-face {
@@ -8,9 +9,36 @@
   font-display: swap;
 }
 
+/* Design tokens — used as Tailwind utilities (bg-brand, text-muted, border-line, font-display, ...) */
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "SansPlomb", sans-serif;
+
+  --color-brand: #5e4fc4;
+  --color-accent: #5c4abb;
+  --color-display: #7362c9;
+
+  --color-ink: #1e1e1e;
+  --color-muted: #5f5c6d;
+  --color-faint: #9897a3;
+
+  --color-danger: #c24a4a;
+
+  --color-line: #d9d9de;
+  --color-line-soft: #cfcde4;
+  --color-surface: #f3f2ff;
+  --color-page: #faf9ff;
+
+  --color-tint-lavender: #dad3ff;
+  --color-tint-cream: #f5e9da;
+  --color-tint-sage: #dce9d7;
+  --color-tint-blue: #dce6f0;
+  --color-tint-pink: #f3d8dc;
+}
+
 body {
-  font-family: 'Manrope', sans-serif;
-  background: #faf9ff;
+  font-family: var(--font-sans);
+  background: var(--color-page);
 }
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
