@@ -1,4 +1,5 @@
 import type { MouseEventHandler, ReactNode } from "react";
+import { Link } from "react-router-dom";
 import ButtonArrow from "@/shared/components/icons/ButtonArrow";
 
 type Variant = "primary" | "secondary" | "outline" | "purple";
@@ -8,9 +9,12 @@ type BigButtonProps = {
   children: ReactNode;
   variant?: Variant;
   size?: Size;
+  to?: string;
   href?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   showArrow?: boolean;
+  className?: string;
+  ariaLabel?: string;
 };
 
 const variants: Record<Variant, string> = {
@@ -23,30 +27,40 @@ const variants: Record<Variant, string> = {
 
 const sizes: Record<Size, string> = {
   sm: "px-[16px] py-[8px] h-[30px] text-[12px]",
-  md: "w-[240px] h-[40px]",
-  lg: "w-[292px] h-[48px]",
+  md: "w-full max-w-[240px] sm:w-[240px] h-[40px]",
+  lg: "w-full max-w-[292px] sm:w-[292px] h-[48px]",
 };
 
 const BigButton = ({
   children,
   variant = "secondary",
   size = "lg",
+  to,
   href,
   onClick,
   showArrow = true,
+  className: extraClassName,
+  ariaLabel,
 }: BigButtonProps) => {
-  const className = `
-    rounded-[100px]
-    border
-    flex
-    items-center
-    justify-center
-    gap-[10px]
-    transition-all
-    duration-300
-    ${sizes[size]}
-    ${variants[variant]}
-  `;
+  const className = [
+    "rounded-[100px]",
+    "border",
+    "inline-flex",
+    "items-center",
+    "justify-center",
+    "gap-[10px]",
+    "transition-all",
+    "duration-300",
+    "focus:outline-2",
+    "focus:outline-[#5C4ABB]",
+    "focus:outline-offset-4",
+    sizes[size],
+    variants[variant],
+    extraClassName ?? "",
+  ]
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
 
   const inner = (
     <>
@@ -55,16 +69,29 @@ const BigButton = ({
     </>
   );
 
+  if (to) {
+    return (
+      <Link to={to} className={className} aria-label={ariaLabel}>
+        {inner}
+      </Link>
+    );
+  }
+
   if (href && href !== "#") {
     return (
-      <a href={href} className={className}>
+      <a href={href} className={className} aria-label={ariaLabel}>
         {inner}
       </a>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} className={className}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={className}
+      aria-label={ariaLabel}
+    >
       {inner}
     </button>
   );
