@@ -5,8 +5,16 @@ import Reveal from "@/shared/components/ui/Reveal";
 import Eyebrow from "@/shared/components/ui/Eyebrow";
 import Card from "@/shared/components/ui/Card";
 import Image from "@/shared/components/ui/Image";
+import CountUp from "@/shared/components/ui/CountUp";
 import BigButton from "@/shared/components/ui/Animated/Button/BigButton";
 import { ROUTES } from "@/shared/constants/routes";
+
+// TODO: replace with Kushal's real figures.
+const STATS = [
+  { to: 8, suffix: "+", label: "Years designing" },
+  { to: 60, suffix: "+", label: "Projects shipped" },
+  { to: 25, suffix: "+", label: "Brands & teams" },
+];
 
 const TOOLS = [
   "Figma",
@@ -130,6 +138,31 @@ function StorySection() {
           ))}
         </div>
       </div>
+    </Section>
+  );
+}
+
+function StatsStrip() {
+  return (
+    <Section className="!py-6 md:!py-8">
+      <Reveal
+        as="div"
+        className="grid grid-cols-3 gap-4 border-y border-line py-8 md:py-10"
+      >
+        {STATS.map((s) => (
+          <div
+            key={s.label}
+            className="flex flex-col items-center text-center md:items-start md:text-left"
+          >
+            <span className="font-display text-[clamp(36px,6vw,72px)] leading-[100%] text-brand">
+              <CountUp to={s.to} suffix={s.suffix} />
+            </span>
+            <span className="mt-2 text-[13px] md:text-[14px] text-muted">
+              {s.label}
+            </span>
+          </div>
+        ))}
+      </Reveal>
     </Section>
   );
 }
@@ -351,6 +384,7 @@ export default function AboutUsPage() {
       </PageHero>
 
       <StorySection />
+      <StatsStrip />
       <ExpertiseSection />
       <ValuesSection />
       <BeyondSection />

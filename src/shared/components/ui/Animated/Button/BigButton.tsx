@@ -4,7 +4,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 import ButtonArrow from "@/shared/components/icons/ButtonArrow";
 
 const button = tv({
-  base: "rounded-[100px] border inline-flex items-center justify-center gap-[10px] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+  base: "group rounded-[100px] border inline-flex items-center justify-center gap-[10px] transition-all duration-300 hover:gap-[14px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
   variants: {
     variant: {
       primary: "bg-black text-white border-black hover:bg-black/90",
@@ -48,7 +48,9 @@ const BigButton = ({
   const inner = (
     <>
       <span>{children}</span>
-      {showArrow && <ButtonArrow className="stroke-current" />}
+      {showArrow && (
+        <ButtonArrow className="stroke-current transition-transform duration-300 group-hover:translate-x-0.5" />
+      )}
     </>
   );
 

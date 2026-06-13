@@ -3,6 +3,8 @@ import PageHero from "@/shared/components/layouts/PageHero";
 import Section from "@/shared/components/layouts/Section";
 import Reveal from "@/shared/components/ui/Reveal";
 import Image from "@/shared/components/ui/Image";
+import Parallax from "@/shared/components/ui/Parallax";
+import { Stagger, StaggerItem } from "@/shared/components/ui/Stagger";
 import BigButton from "@/shared/components/ui/Animated/Button/BigButton";
 import { ROUTES } from "@/shared/constants/routes";
 import { works, type Work } from "@/pages/work/data/works";
@@ -19,16 +21,21 @@ function Tile({
   index: number;
   featured?: boolean;
 }) {
+  const alt = `${item.title} — ${item.type}`;
   return (
     <article className="flex flex-col">
-      <figure className="group relative overflow-hidden rounded-[16px] md:rounded-[20px] bg-tint-cream">
-        <Image
-          src={item.src}
-          alt={`${item.title} — ${item.type}`}
-          ratio={featured ? "16/9" : "4/3"}
-          zoom
-          priority={featured}
-        />
+      <figure
+        className={`group relative overflow-hidden rounded-[16px] md:rounded-[20px] bg-tint-cream ${
+          featured ? "aspect-[16/9]" : "aspect-[4/3]"
+        }`}
+      >
+        {featured ? (
+          <Parallax distance={30} className="absolute inset-0">
+            <Image src={item.src} alt={alt} fill zoom priority className="scale-[1.1]" />
+          </Parallax>
+        ) : (
+          <Image src={item.src} alt={alt} fill zoom />
+        )}
       </figure>
       <div className="mt-4 flex items-baseline justify-between gap-4">
         <h3
@@ -93,13 +100,17 @@ export default function WorkPage() {
             </Reveal>
           )}
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 lg:gap-12 list-none p-0">
+          <Stagger
+            as="ul"
+            stagger={0.1}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 lg:gap-12 list-none p-0"
+          >
             {rest.map((item, i) => (
-              <Reveal key={item.id} as="li" y={32} delay={(i % 2) * 0.08}>
+              <StaggerItem key={item.id} as="li" y={32}>
                 <Tile item={item} index={i + 1} />
-              </Reveal>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
         </div>
       </Section>
 

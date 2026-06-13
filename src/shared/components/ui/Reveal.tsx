@@ -1,24 +1,11 @@
-import { m } from "framer-motion";
 import type { ReactNode } from "react";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
-
-const TAGS = {
-  div: m.div,
-  h1: m.h1,
-  h2: m.h2,
-  h3: m.h3,
-  h4: m.h4,
-  p: m.p,
-  span: m.span,
-  ul: m.ul,
-  li: m.li,
-} as const;
+import { MOTION_TAGS, EASE, VIEWPORT, type MotionTag } from "@/shared/constants/motion";
+import { m } from "framer-motion";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
-  as?: keyof typeof TAGS;
+  as?: MotionTag;
   delay?: number;
   y?: number;
   duration?: number;
@@ -40,7 +27,7 @@ export default function Reveal({
   duration = 0.6,
   onMount = false,
 }: RevealProps) {
-  const Comp = TAGS[as] as typeof m.div;
+  const Comp = MOTION_TAGS[as] as typeof m.div;
 
   return (
     <Comp
@@ -49,10 +36,7 @@ export default function Reveal({
       className={className}
       {...(onMount
         ? { animate: { opacity: 1, y: 0 } }
-        : {
-            whileInView: { opacity: 1, y: 0 },
-            viewport: { once: true, margin: "-80px" },
-          })}
+        : { whileInView: { opacity: 1, y: 0 }, viewport: VIEWPORT })}
     >
       {children}
     </Comp>

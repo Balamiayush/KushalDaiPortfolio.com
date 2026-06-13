@@ -2,6 +2,7 @@ import LayoutWrapper from "@/shared/components/layouts/wrapper/LayoutWrapper";
 import Reveal from "@/shared/components/ui/Reveal";
 import Eyebrow from "@/shared/components/ui/Eyebrow";
 import Image from "@/shared/components/ui/Image";
+import { Stagger, StaggerItem } from "@/shared/components/ui/Stagger";
 import { works } from "@/pages/work/data/works";
 
 const GallerySection = () => {
@@ -25,20 +26,21 @@ const GallerySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+        <Stagger
+          className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5"
+          stagger={0.06}
+        >
           {works.map((item, i) => (
-            <Reveal
+            <StaggerItem
               key={item.id}
-              as="div"
-              delay={(i % 4) * 0.06}
               className={`group overflow-hidden rounded-[12px] md:rounded-[16px] bg-tint-cream ${
                 i % 5 === 0 ? "col-span-2 aspect-[16/10]" : "aspect-[4/5]"
               }`}
             >
               <Image src={item.src} alt={`${item.title} — ${item.type}`} zoom />
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </LayoutWrapper>
     </section>
   );
