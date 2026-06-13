@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { navLinks } from "@/shared/constants/data";
 import KushalDaiIcon from "../../icons/KushalDaiIcon";
@@ -8,19 +8,23 @@ import ButtonArrow from "../../icons/ButtonArrow";
 
 export default function NavLinks() {
   const time = useLocalTime("Asia/Kathmandu");
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
 
+  const openMenu = () => {
+    setOpen(true);
+    dialogRef.current?.showModal();
+  };
+  const closeMenu = () => dialogRef.current?.close();
+
+  // Native <dialog> handles focus trap, Escape, and focus restore. We only add
+  // body-scroll locking while it's open.
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -46,7 +50,10 @@ export default function NavLinks() {
 
       <div className="hidden lg:flex items-center gap-6 xl:gap-[32px]">
         <div className="flex items-start gap-2">
-          <div className="bg-[#008C07] size-[8px] rounded-full mt-[2px] outline-2 outline-[#008C0733]" />
+          <div
+            aria-hidden="true"
+            className="bg-[#008C07] size-[8px] rounded-full mt-[2px] outline-2 outline-[#008C0733]"
+          />
           <div className="flex flex-col leading-tight">
             <p className="font-semibold text-[14px] text-[#1E1E1E]">
               Available for Project
@@ -74,7 +81,7 @@ export default function NavLinks() {
         aria-label="Open menu"
         aria-expanded={open}
         aria-controls="mobile-nav"
-        onClick={() => setOpen(true)}
+        onClick={openMenu}
         className="lg:hidden inline-flex items-center justify-center size-11 rounded-full bg-white/70 backdrop-blur ring-1 ring-black/10"
       >
         <span className="sr-only">Open menu</span>
@@ -94,27 +101,22 @@ export default function NavLinks() {
         </svg>
       </button>
 
-      {open && (
-        <div
-          id="mobile-nav"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site navigation"
-          className="lg:hidden fixed inset-0 top-0 z-40 flex flex-col bg-[#FAF9FF] px-6 pt-6 pb-10 overflow-y-auto"
-        >
+      <dialog
+        ref={dialogRef}
+        id="mobile-nav"
+        aria-label="Site navigation"
+        onClose={() => setOpen(false)}
+        className="lg:hidden inset-0 m-0 h-[100dvh] max-h-[100dvh] w-full max-w-none bg-[#FAF9FF] px-6 pt-6 pb-10 overflow-y-auto backdrop:bg-black/40"
+      >
+        <div className="flex min-h-full flex-col">
           <div className="flex items-center justify-between mb-10">
-            <Link
-              to="/"
-              aria-label="Home"
-              onClick={() => setOpen(false)}
-              className="shrink-0"
-            >
+            <Link to="/" aria-label="Home" onClick={closeMenu} className="shrink-0">
               <KushalDaiIcon />
             </Link>
             <button
               type="button"
               aria-label="Close menu"
-              onClick={() => setOpen(false)}
+              onClick={closeMenu}
               className="inline-flex items-center justify-center size-11 rounded-full bg-white ring-1 ring-black/10"
             >
               <svg
@@ -138,7 +140,7 @@ export default function NavLinks() {
               <li key={navLink.id}>
                 <Link
                   to={navLink.href}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className="block py-4 text-[28px] leading-none text-[#1E1E1E] border-b border-[#E6E4F2]"
                 >
                   {navLink.title}
@@ -149,7 +151,10 @@ export default function NavLinks() {
 
           <div className="mt-auto flex flex-col gap-5">
             <div className="flex items-start gap-2">
-              <div className="bg-[#008C07] size-[8px] rounded-full mt-[6px] outline-2 outline-[#008C0733]" />
+              <div
+                aria-hidden="true"
+                className="bg-[#008C07] size-[8px] rounded-full mt-[6px] outline-2 outline-[#008C0733]"
+              />
               <div className="flex flex-col leading-tight">
                 <p className="font-semibold text-[16px] text-[#1E1E1E]">
                   Available for Project
@@ -165,7 +170,7 @@ export default function NavLinks() {
 
             <Link
               to="/contact"
-              onClick={() => setOpen(false)}
+              onClick={closeMenu}
               className="inline-flex items-center justify-center gap-2 text-white px-6 py-4 bg-[#5E4FC4] rounded-full text-[18px]"
             >
               <span>Let&rsquo;s Talk</span>
@@ -173,7 +178,7 @@ export default function NavLinks() {
             </Link>
           </div>
         </div>
-      )}
+      </dialog>
     </nav>
   );
 }

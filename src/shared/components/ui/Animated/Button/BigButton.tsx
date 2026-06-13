@@ -1,14 +1,29 @@
 import type { MouseEventHandler, ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { tv, type VariantProps } from "tailwind-variants";
 import ButtonArrow from "@/shared/components/icons/ButtonArrow";
 
-type Variant = "primary" | "secondary" | "outline" | "purple";
-type Size = "sm" | "md" | "lg";
+const button = tv({
+  base: "rounded-[100px] border inline-flex items-center justify-center gap-[10px] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+  variants: {
+    variant: {
+      primary: "bg-black text-white border-black hover:bg-black/90",
+      secondary: "bg-transparent text-muted border-muted hover:bg-muted/10",
+      outline: "bg-white text-black border-black hover:bg-black hover:text-white",
+      purple: "bg-brand text-white border-brand hover:bg-brand/90",
+      light: "bg-white text-brand border-white hover:bg-white/90",
+    },
+    size: {
+      sm: "px-[16px] py-[8px] min-h-[36px] text-[12px]",
+      md: "w-full max-w-[240px] sm:w-[240px] h-[40px]",
+      lg: "w-full max-w-[292px] sm:w-[292px] h-[48px]",
+    },
+  },
+  defaultVariants: { variant: "secondary", size: "lg" },
+});
 
-type BigButtonProps = {
+type BigButtonProps = VariantProps<typeof button> & {
   children: ReactNode;
-  variant?: Variant;
-  size?: Size;
   to?: string;
   href?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -17,50 +32,18 @@ type BigButtonProps = {
   ariaLabel?: string;
 };
 
-const variants: Record<Variant, string> = {
-  primary: "bg-black text-white border-black hover:bg-black/90",
-  secondary:
-    "bg-transparent text-[#5F5C6D] border-[#5F5C6D] hover:bg-[#5F5C6D]/10",
-  outline: "bg-white text-black border-black hover:bg-black hover:text-white",
-  purple: "bg-[#5E4FC4] text-white border-[#5E4FC4] hover:bg-[#5E4FC4]/90",
-};
-
-const sizes: Record<Size, string> = {
-  sm: "px-[16px] py-[8px] h-[30px] text-[12px]",
-  md: "w-full max-w-[240px] sm:w-[240px] h-[40px]",
-  lg: "w-full max-w-[292px] sm:w-[292px] h-[48px]",
-};
-
 const BigButton = ({
   children,
-  variant = "secondary",
-  size = "lg",
+  variant,
+  size,
   to,
   href,
   onClick,
   showArrow = true,
-  className: extraClassName,
+  className,
   ariaLabel,
 }: BigButtonProps) => {
-  const className = [
-    "rounded-[100px]",
-    "border",
-    "inline-flex",
-    "items-center",
-    "justify-center",
-    "gap-[10px]",
-    "transition-all",
-    "duration-300",
-    "focus:outline-2",
-    "focus:outline-[#5C4ABB]",
-    "focus:outline-offset-4",
-    sizes[size],
-    variants[variant],
-    extraClassName ?? "",
-  ]
-    .join(" ")
-    .replace(/\s+/g, " ")
-    .trim();
+  const classes = button({ variant, size, class: className });
 
   const inner = (
     <>
@@ -71,7 +54,7 @@ const BigButton = ({
 
   if (to) {
     return (
-      <Link to={to} className={className} aria-label={ariaLabel}>
+      <Link to={to} className={classes} aria-label={ariaLabel}>
         {inner}
       </Link>
     );
@@ -79,7 +62,7 @@ const BigButton = ({
 
   if (href && href !== "#") {
     return (
-      <a href={href} className={className} aria-label={ariaLabel}>
+      <a href={href} className={classes} aria-label={ariaLabel}>
         {inner}
       </a>
     );
@@ -89,7 +72,7 @@ const BigButton = ({
     <button
       type="button"
       onClick={onClick}
-      className={className}
+      className={classes}
       aria-label={ariaLabel}
     >
       {inner}

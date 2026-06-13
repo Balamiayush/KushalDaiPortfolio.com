@@ -65,6 +65,12 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }: Co
           lines.current.push(...(split.lines as HTMLElement[]));
         });
 
+        // Reduced motion: leave text in its natural, visible position.
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          gsap.set(lines.current, { y: "0%" });
+          return;
+        }
+
         gsap.set(lines.current, { y: "100%" });
 
         const animationProps = {
