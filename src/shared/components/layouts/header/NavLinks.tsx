@@ -49,10 +49,10 @@ export default function NavLinks() {
       </ul>
 
       <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-        <div className="flex items-start gap-2">
+        <div className="flex items-center gap-2">
           <div
             aria-hidden="true"
-            className="bg-[#008C07] size-2 rounded-full mt-0.5 outline-2 outline-[#008C0733]"
+            className="bg-[#008C07] size-2 rounded-full outline-2 outline-[#008C0733]"
           />
           <div className="flex flex-col leading-tight">
             <p className="font-semibold text-sm text-[#1E1E1E]">
@@ -150,10 +150,10 @@ export default function NavLinks() {
           </ul>
 
           <div className="mt-auto flex flex-col gap-5">
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <div
                 aria-hidden="true"
-                className="bg-[#008C07] size-2 rounded-full mt-1.5 outline-2 outline-[#008C0733]"
+                className="bg-[#008C07] size-2 rounded-full outline-2 outline-[#008C0733]"
               />
               <div className="flex flex-col leading-tight">
                 <p className="font-semibold text-base text-[#1E1E1E]">

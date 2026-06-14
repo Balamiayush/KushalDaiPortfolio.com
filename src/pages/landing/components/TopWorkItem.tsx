@@ -24,7 +24,7 @@ const TopData = ({ activeIndex, onTitleClick }: TopDataProps) => {
     });
 
     gsap.to(textRef.current, {
-      y: -activeIndex * 160,
+      y: -activeIndex * 200,
       duration: 1,
       delay: 0.4,
       ease: "power3.out",
@@ -32,7 +32,7 @@ const TopData = ({ activeIndex, onTitleClick }: TopDataProps) => {
   }, [activeIndex]);
 
   return (
-    <div className="sticky top-[4vw] flex h-[535px] w-[457px] flex-col gap-8">
+    <div className="sticky top-[120px] flex h-[535px] w-[457px] flex-col gap-8">
       {/* NUMBERS */}
       <div className="relative h-[120px] overflow-hidden">
         <div ref={numberRef}>
@@ -69,10 +69,10 @@ const TopData = ({ activeIndex, onTitleClick }: TopDataProps) => {
       </Link>
 
       {/* DESCRIPTION */}
-      <div className="absolute bottom-0 h-[160px] w-[457px] overflow-hidden">
+      <div className="absolute bottom-0 h-[200px] w-[457px] overflow-hidden">
         <div ref={textRef}>
           {workData.map((item) => (
-            <div key={item.title} className="flex flex-col gap-6">
+            <div key={item.title} className="flex h-[200px] flex-col gap-6">
               <h3 className="font-[SansPlomb] text-6xl leading-[96%] text-[#5E4CBB]">
                 {item.title}
               </h3>
