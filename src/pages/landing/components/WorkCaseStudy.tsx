@@ -14,20 +14,28 @@ const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
 const WorkCaseStudy = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const rowRefs = useRef<Array<HTMLLIElement | null>>([]);
-  const [openId, setOpenId] = useState<number | null>(workCaseStudyData[0]?.id ?? null);
+  const [openId, setOpenId] = useState<number | null>(
+    workCaseStudyData[0]?.id ?? null
+  );
 
   useGSAP(
     () => {
+      const last = workCaseStudyData.length - 1;
       const triggers: ScrollTrigger[] = [];
       rowRefs.current.forEach((el, i) => {
         if (!el) return;
         triggers.push(
           ScrollTrigger.create({
             trigger: el,
-            start: "top 45%",
-            end: "bottom 45%",
-            onEnter: () => setOpenId(workCaseStudyData[i].id),
-            onEnterBack: () => setOpenId(workCaseStudyData[i].id),
+            // Two lines for hysteresis: collapse (down) right at the nav,
+            // but reopen (up) only once the title has dropped a bit lower —
+            // so the up-direction handoff starts a little later.
+            start: "top 200px",
+            end: "top 120px",
+            // Scrolling down past the nav line → hand off to the next row.
+            onLeave: () => setOpenId(workCaseStudyData[Math.min(i + 1, last)].id),
+            // Scrolling up back below the upper line → reopen this row.
+            onLeaveBack: () => setOpenId(workCaseStudyData[i].id),
             invalidateOnRefresh: true,
           })
         );
@@ -43,7 +51,7 @@ const WorkCaseStudy = () => {
   }, [openId]);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-[60px]">
+    <section ref={sectionRef} className="py-12 md:py-15">
       <LayoutWrapper>
         <ul className="flex flex-col">
           {workCaseStudyData.map(({ id, index, title, description, image, tags }, i) => {
@@ -65,9 +73,9 @@ const WorkCaseStudy = () => {
                   onClick={() => setOpenId((prev) => (prev === id ? null : id))}
                   className="group flex w-full items-center justify-between gap-6 py-6 md:py-8 lg:py-10 text-left focus:outline-2 focus:outline-[#5C4ABB] focus:outline-offset-4"
                 >
-                  <span className="flex items-baseline gap-5 md:gap-8 lg:gap-[88px]">
+                  <span className="flex items-baseline gap-5 md:gap-8 lg:gap-22">
                     <span
-                      className={`font-[SansPlomb] text-[40px] md:text-[56px] lg:text-[72px] leading-[96%] tracking-[0.01em] transition-colors duration-300 ${
+                      className={`font-[SansPlomb] text-[40px] md:text-[56px] lg:text-7xl leading-[96%] tracking-[0.01em] transition-colors duration-300 ${
                         isOpen ? "text-[#1E1E20]" : "text-[#9897A3] group-hover:text-[#1E1E20]"
                       }`}
                     >
@@ -128,7 +136,7 @@ const WorkCaseStudy = () => {
                           className="w-full lg:w-1/2 lg:max-w-[440px] aspect-[4/3] object-cover rounded-lg"
                         />
                         <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
-                          <p className="max-w-[440px] text-[15px] md:text-[17px] lg:text-[18px] leading-[150%] lg:leading-[140%] font-light tracking-[0.01em] text-[#5D5C69]">
+                          <p className="max-w-[440px] text-[15px] md:text-[17px] lg:text-lg leading-[150%] lg:leading-[140%] font-light tracking-[0.01em] text-[#5D5C69]">
                             {description}
                           </p>
                           <div className="flex flex-wrap items-center gap-3 md:gap-4">

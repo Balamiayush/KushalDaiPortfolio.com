@@ -116,7 +116,7 @@ function ContactForm() {
   };
 
   const inputBase =
-    "w-full bg-white border rounded-[14px] px-4 md:px-5 py-3 md:py-4 text-[16px] text-ink placeholder:text-faint focus:outline-2 focus:outline-accent focus:outline-offset-2 focus:border-transparent transition-colors";
+    "w-full bg-white border rounded-[14px] px-4 md:px-5 py-3 md:py-4 text-base text-ink placeholder:text-faint focus:outline-2 focus:outline-accent focus:outline-offset-2 focus:border-transparent transition-colors";
   const fieldBorder = (key: string) =>
     errors[key] ? "border-danger" : "border-line";
 
@@ -130,7 +130,7 @@ function ContactForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="contact-name"
-          className="text-[14px] text-muted tracking-[0.02em]"
+          className="text-sm text-muted tracking-[0.02em]"
         >
           Your name <span className="text-accent">*</span>
         </label>
@@ -157,7 +157,7 @@ function ContactForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="contact-email"
-          className="text-[14px] text-muted tracking-[0.02em]"
+          className="text-sm text-muted tracking-[0.02em]"
         >
           Email address <span className="text-accent">*</span>
         </label>
@@ -184,7 +184,7 @@ function ContactForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="contact-project"
-          className="text-[14px] text-muted tracking-[0.02em]"
+          className="text-sm text-muted tracking-[0.02em]"
         >
           What&rsquo;s it about?
         </label>
@@ -225,7 +225,7 @@ function ContactForm() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="contact-message"
-          className="text-[14px] text-muted tracking-[0.02em]"
+          className="text-sm text-muted tracking-[0.02em]"
         >
           Tell me a bit more <span className="text-accent">*</span>
         </label>
@@ -257,11 +257,11 @@ function ContactForm() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35 }}
-              className="rounded-[16px] border border-line-soft bg-surface p-5 md:p-6"
+              className="rounded-2xl border border-line-soft bg-surface p-5 md:p-6"
               role="status"
               aria-live="polite"
             >
-              <p className="font-display text-[20px] md:text-[24px] text-ink mb-2">
+              <p className="font-display text-xl md:text-2xl text-ink mb-2">
                 Message received.
               </p>
               <p className="text-muted text-[15px] leading-[150%] mb-4">
@@ -279,7 +279,7 @@ function ContactForm() {
                 <button
                   type="button"
                   onClick={() => setStatus("idle")}
-                  className="text-muted text-[14px] text-left underline underline-offset-4 hover:text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 rounded-sm"
+                  className="text-muted text-sm text-left underline underline-offset-4 hover:text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 rounded-sm"
                 >
                   Send another message
                 </button>
@@ -295,7 +295,7 @@ function ContactForm() {
               className="flex flex-col gap-4"
             >
               {status === "error" && (
-                <p role="alert" className="text-danger text-[14px] leading-[150%]">
+                <p role="alert" className="text-danger text-sm leading-[150%]">
                   Something went sideways on our end. Please try again, or email{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
@@ -312,7 +312,7 @@ function ContactForm() {
                 whileHover={status === "submitting" ? undefined : { scale: 1.02 }}
                 whileTap={status === "submitting" ? undefined : { scale: 0.98 }}
                 transition={{ duration: 0.2 }}
-                className="rounded-[100px] border inline-flex items-center justify-center gap-[10px] w-full max-w-[292px] sm:w-[292px] h-[48px] bg-brand text-white border-brand hover:bg-brand/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+                className="rounded-full border inline-flex items-center justify-center gap-2.5 w-full max-w-[292px] sm:w-[292px] h-[48px] bg-brand text-white border-brand hover:bg-brand/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
                 aria-busy={status === "submitting"}
               >
                 <span>{SUBMIT_LABEL[status]}</span>
@@ -343,7 +343,7 @@ function ContactForm() {
 function ContactInfo() {
   return (
     <Card animate={false} padding="md">
-      <p className="text-[12px] tracking-[0.12em] uppercase text-muted mb-3">
+      <p className="text-xs tracking-[0.12em] uppercase text-muted mb-3">
         Direct line
       </p>
       <a
@@ -352,13 +352,13 @@ function ContactInfo() {
       >
         {CONTACT_EMAIL}
       </a>
-      <p className="mt-3 text-muted text-[14px] leading-[150%]">
+      <p className="mt-3 text-muted text-sm leading-[150%]">
         Best for briefs, quotes, and longer threads.
       </p>
 
       <div className="border-t border-line my-8" />
 
-      <p className="text-[12px] tracking-[0.12em] uppercase text-muted mb-4">
+      <p className="text-xs tracking-[0.12em] uppercase text-muted mb-4">
         Find me around
       </p>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
@@ -368,7 +368,7 @@ function ContactInfo() {
             className="flex items-center justify-between border-b border-line py-3 last:border-b-0"
           >
             <span className="flex flex-col">
-              <span className="text-[14px] text-ink">{s.label}</span>
+              <span className="text-sm text-ink">{s.label}</span>
               <span className="text-[13px] text-muted">{s.handle}</span>
             </span>
             <span className="text-[11px] uppercase tracking-[0.08em] text-muted">
@@ -380,7 +380,7 @@ function ContactInfo() {
 
       <div className="border-t border-line my-8" />
 
-      <p className="text-[12px] tracking-[0.12em] uppercase text-muted mb-3">
+      <p className="text-xs tracking-[0.12em] uppercase text-muted mb-3">
         Office hours
       </p>
       <p className="text-ink text-[15px] leading-[150%]">
@@ -410,7 +410,7 @@ export default function ContactPage() {
           onMount
           delay={0.6}
           y={12}
-          className="mt-10 hidden md:flex flex-wrap gap-3 md:gap-6 text-[12px] md:text-[14px] tracking-[0.08em] uppercase text-muted"
+          className="mt-10 hidden md:flex flex-wrap gap-3 md:gap-6 text-xs md:text-sm tracking-[0.08em] uppercase text-muted"
         >
           {META_ITEMS.map((item, i) => (
             <span key={item} className="flex items-center gap-3 md:gap-6">
@@ -435,7 +435,7 @@ export default function ContactPage() {
           >
             Tell me about your project
           </Reveal>
-          <Reveal as="p" delay={0.1} className="text-muted max-w-[560px] text-[15px] md:text-[16px] leading-[150%]">
+          <Reveal as="p" delay={0.1} className="text-muted max-w-[560px] text-[15px] md:text-base leading-[150%]">
             Fill in a few details and I&rsquo;ll get back to you with next
             steps, a quick scope, and a calendar invite if it makes sense.
           </Reveal>
@@ -448,7 +448,7 @@ export default function ContactPage() {
           <Reveal
             as="div"
             delay={0.2}
-            className="lg:col-span-5 lg:sticky lg:top-[120px] lg:self-start"
+            className="lg:col-span-5 lg:sticky lg:top-30 lg:self-start"
           >
             <ContactInfo />
           </Reveal>
@@ -457,13 +457,13 @@ export default function ContactPage() {
 
       <Section className="!pt-0">
         <Reveal as="div" className="max-w-[760px] mx-auto text-center">
-          <p className="text-[12px] md:text-[13px] tracking-[0.12em] uppercase text-muted mb-4">
+          <p className="text-xs md:text-[13px] tracking-[0.12em] uppercase text-muted mb-4">
             Prefer a quick hello?
           </p>
           <h3 className="font-display text-[clamp(28px,4vw,48px)] leading-[105%] text-ink mb-4">
             Skip the form — say hi on email.
           </h3>
-          <p className="text-muted max-w-[520px] mx-auto text-[15px] md:text-[16px] leading-[150%]">
+          <p className="text-muted max-w-[520px] mx-auto text-[15px] md:text-base leading-[150%]">
             Sometimes a two-line email is all it takes. I&rsquo;m friendly,
             promise.
           </p>

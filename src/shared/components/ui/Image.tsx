@@ -14,10 +14,10 @@ const image = tv({
     },
     rounded: {
       none: "",
-      sm: "rounded-[12px]",
-      md: "rounded-[12px] md:rounded-[16px]",
-      lg: "rounded-[16px] md:rounded-[20px]",
-      xl: "rounded-[20px] md:rounded-[24px]",
+      sm: "rounded-xl",
+      md: "rounded-xl md:rounded-2xl",
+      lg: "rounded-2xl md:rounded-[20px]",
+      xl: "rounded-[20px] md:rounded-3xl",
       full: "rounded-full",
     },
     fill: {

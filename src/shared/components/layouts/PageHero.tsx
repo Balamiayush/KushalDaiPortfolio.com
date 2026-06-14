@@ -45,10 +45,10 @@ export default function PageHero({
   const y = useTransform(scrollYProgress, [0, 0.55], [0, -48]);
 
   return (
-    <div className="relative mx-auto w-full p-3 md:p-[24px]">
+    <div className="relative mx-auto w-full p-3 md:p-6">
       <section
         ref={ref}
-        className={`relative flex w-full flex-col justify-end overflow-hidden rounded-[20px] md:rounded-[24px] ${TINTS[tint]} p-5 pt-24 md:p-8 md:pt-32 lg:p-10 lg:pt-[140px] min-h-[560px] md:min-h-[640px] lg:min-h-[700px]`}
+        className={`relative flex w-full flex-col justify-end overflow-hidden rounded-[20px] md:rounded-3xl ${TINTS[tint]} p-5 pt-24 md:p-8 md:pt-32 lg:p-10 lg:pt-35 min-h-[560px] md:min-h-[640px] lg:min-h-[700px]`}
       >
         <m.div style={reduce ? undefined : { opacity, y }}>
           <div className="flex w-full flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
@@ -70,7 +70,7 @@ export default function PageHero({
                 onMount
                 delay={0.1}
                 duration={0.7}
-                className="max-w-full lg:max-w-[420px] xl:max-w-[480px] text-[14px] md:text-[16px] lg:text-[18px] leading-[140%] lg:leading-[120%] font-normal tracking-[0.01em] text-ink"
+                className="max-w-full lg:max-w-[420px] xl:max-w-[480px] text-sm md:text-base lg:text-lg leading-[140%] lg:leading-[120%] font-normal tracking-[0.01em] text-ink"
               >
                 {intro}
               </Reveal>

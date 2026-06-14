@@ -79,7 +79,7 @@ function ServicesAccordion() {
   );
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-[60px]">
+    <section ref={sectionRef} className="py-12 md:py-15">
       <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-12">
         <ul className="flex flex-col">
           {services.map((s, i) => {
@@ -101,9 +101,9 @@ function ServicesAccordion() {
                   onClick={() => setOpenId(s.id)}
                   className="group flex w-full items-center justify-between gap-6 py-6 text-left focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 md:py-8 lg:py-10"
                 >
-                  <span className="flex items-baseline gap-5 md:gap-8 lg:gap-[88px]">
+                  <span className="flex items-baseline gap-5 md:gap-8 lg:gap-22">
                     <span
-                      className={`font-display text-[40px] leading-[96%] tracking-[0.01em] transition-colors duration-300 md:text-[56px] lg:text-[72px] ${
+                      className={`font-display text-[40px] leading-[96%] tracking-[0.01em] transition-colors duration-300 md:text-[56px] lg:text-7xl ${
                         isOpen ? "text-ink" : "text-muted group-hover:text-ink"
                       }`}
                     >
@@ -158,7 +158,7 @@ function ServicesAccordion() {
                     >
                       <div className="flex flex-col gap-6 pb-8 md:pb-10 lg:flex-row lg:items-start lg:gap-10 lg:pb-12">
                         <div className="lg:w-1/2">
-                          <p className="max-w-[440px] text-[15px] font-light leading-[150%] tracking-[0.01em] text-muted md:text-[17px] lg:text-[18px] lg:leading-[140%]">
+                          <p className="max-w-[440px] text-[15px] font-light leading-[150%] tracking-[0.01em] text-muted md:text-[17px] lg:text-lg lg:leading-[140%]">
                             {s.description}
                           </p>
                         </div>
@@ -166,11 +166,11 @@ function ServicesAccordion() {
                           {s.deliverables.map((d) => (
                             <li
                               key={d}
-                              className="flex items-start gap-3 border-b border-line pb-3 text-[15px] text-ink md:text-[16px]"
+                              className="flex items-start gap-3 border-b border-line pb-3 text-[15px] text-ink md:text-base"
                             >
                               <span
                                 aria-hidden
-                                className="mt-[6px] inline-block size-[6px] shrink-0 rounded-full bg-accent"
+                                className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-accent"
                               />
                               <span>{d}</span>
                             </li>
@@ -207,23 +207,23 @@ function ProcessCallout() {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-12 lg:mt-[60px] lg:grid-cols-4 lg:gap-6">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-12 lg:mt-15 lg:grid-cols-4 lg:gap-6">
         {PROCESS_STEPS.map((step, i) => (
           <Card
             key={step.id}
             delay={i * 0.08}
             radius="md"
             padding="none"
-            className="flex min-h-[260px] flex-col items-start justify-between gap-8 p-6 lg:min-h-[300px] lg:p-[24px]"
+            className="flex min-h-[260px] flex-col items-start justify-between gap-8 p-6 lg:min-h-[300px] lg:p-6"
           >
-            <span className="font-display text-[40px] leading-[96%] text-brand md:text-[48px] lg:text-[56px]">
+            <span className="font-display text-[40px] leading-[96%] text-brand md:text-5xl lg:text-[56px]">
               {step.number}
             </span>
             <div className="flex flex-col gap-3">
-              <h3 className="font-display text-[28px] leading-[100%] text-ink md:text-[32px] lg:text-[36px]">
+              <h3 className="font-display text-[28px] leading-[100%] text-ink md:text-[32px] lg:text-4xl">
                 {step.title}
               </h3>
-              <p className="text-[15px] leading-[150%] text-muted md:text-[16px]">
+              <p className="text-[15px] leading-[150%] text-muted md:text-base">
                 {step.blurb}
               </p>
             </div>
@@ -239,7 +239,7 @@ function ServicesCTA() {
     <Section className="!pt-0">
       <Reveal
         as="div"
-        className="flex flex-col gap-8 rounded-[20px] border border-line-soft bg-surface px-6 py-12 md:rounded-[24px] md:px-10 md:py-16 lg:flex-row lg:items-end lg:justify-between lg:px-[64px] lg:py-[80px]"
+        className="flex flex-col gap-8 rounded-[20px] border border-line-soft bg-surface px-6 py-12 md:rounded-3xl md:px-10 md:py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:py-20"
       >
         <div className="flex max-w-[680px] flex-col gap-4">
           <Eyebrow className="text-muted">Start here</Eyebrow>

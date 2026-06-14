@@ -14,14 +14,14 @@ const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 0.55], [0, -48]);
 
   return (
-    <div className="relative mx-auto w-full p-3 md:p-[24px]">
+    <div className="relative mx-auto w-full p-3 md:p-6">
       <section
         ref={ref}
-        className="relative flex w-full flex-col justify-end rounded-[20px] md:rounded-[24px] bg-tint-lavender p-5 pt-24 md:p-8 md:pt-32 lg:p-[24px] lg:pt-[140px] min-h-[560px] md:min-h-[640px] lg:min-h-[700px] xl:min-h-[723px] 2xl:min-h-[90vh] overflow-hidden"
+        className="relative flex w-full flex-col justify-end rounded-[20px] md:rounded-3xl bg-tint-lavender p-5 pt-24 md:p-8 md:pt-32 lg:p-6 lg:pt-35 min-h-[560px] md:min-h-[640px] lg:min-h-[700px] xl:min-h-[723px] 2xl:min-h-[90vh] overflow-hidden"
       >
         <Parallax
           distance={40}
-          className="absolute inset-0 z-[-1] overflow-hidden rounded-[20px] md:rounded-[24px]"
+          className="absolute inset-0 z-[-1] overflow-hidden rounded-[20px] md:rounded-3xl"
         >
           <img
             src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_2400/v1768109206/IMG_5475_qgszwk.png"
@@ -34,11 +34,11 @@ const HeroSection = () => {
 
         <m.div
           style={reduce ? undefined : { opacity, y }}
-          className="heroContainer flex w-full flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-8 lg:px-[24px]"
+          className="heroContainer flex w-full flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-8 lg:px-6"
         >
-          <div className="flex flex-col items-start gap-3 lg:gap-2 lg:py-[24px]">
+          <div className="flex flex-col items-start gap-3 lg:gap-2 lg:py-6">
             <Copy animateOnScroll={false}>
-              <p className="text-[14px] md:text-[16px] lg:text-[18px] leading-[120%] tracking-[0.01em] text-ink">
+              <p className="text-sm md:text-base lg:text-lg leading-[120%] tracking-[0.01em] text-ink">
                 Namaste! This is Kushal
               </p>
             </Copy>
@@ -48,7 +48,7 @@ const HeroSection = () => {
             </h1>
           </div>
           <Copy animateOnScroll={false}>
-            <p className="max-w-full lg:max-w-[420px] xl:max-w-[480px] text-[14px] md:text-[16px] lg:text-[18px] leading-[140%] lg:leading-[120%] font-normal tracking-[0.01em] text-ink">
+            <p className="max-w-full lg:max-w-[420px] xl:max-w-[480px] text-sm md:text-base lg:text-lg leading-[140%] lg:leading-[120%] font-normal tracking-[0.01em] text-ink">
               Creative designer shaping brands and products with strategy,
               storytelling, and user-centered design, also offering mentorship
               for design enthusiasts and learners.

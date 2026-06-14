@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -6,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 
 import LayoutWrapper from "@/shared/components/layouts/wrapper/LayoutWrapper";
 import BigButton from "@/shared/components/ui/Animated/Button/BigButton";
+import ButtonArrow from "@/shared/components/icons/ButtonArrow";
+import { ROUTES } from "@/shared/constants/routes";
 import TopData from "./TopWorkItem";
 import { workData } from "../data/work-data";
 
@@ -56,9 +59,9 @@ const WorkSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-[64px] md:py-[96px] lg:py-[120px]">
+    <section ref={sectionRef} className="py-16 md:py-24 lg:py-30">
       <LayoutWrapper>
-        <div className="flex flex-col gap-10 md:gap-14 lg:gap-[72px]">
+        <div className="flex flex-col gap-10 md:gap-14 lg:gap-18">
           {/* Header */}
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
             <p className="font-[SansPlomb] text-[clamp(28px,4vw,40px)] leading-[110%] lg:leading-[100%] tracking-[0.01em] text-[#9897A3] xl:max-w-[550px]">
@@ -83,7 +86,7 @@ const WorkSection = () => {
             </div>
 
             {/* RIGHT */}
-            <div className="flex w-full flex-col items-stretch gap-10 md:gap-14 lg:items-end lg:gap-[88px]">
+            <div className="flex w-full flex-col items-stretch gap-10 md:gap-14 lg:items-end lg:gap-22">
               {workData.map((item, i) => (
                 <figure key={item.id} className="w-full lg:w-1/2 flex flex-col gap-3">
                   <img
@@ -94,7 +97,7 @@ const WorkSection = () => {
                     alt={item.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-auto lg:h-[535px] lg:object-cover aspect-[4/3] lg:aspect-auto rounded-[12px]"
+                    className="w-full h-auto lg:h-[535px] lg:object-cover aspect-[4/3] lg:aspect-auto rounded-xl"
                   />
                   <figcaption className="lg:hidden">
                     <h3 className="font-[SansPlomb] text-[32px] leading-[100%] text-[#1D1D1E]">
@@ -103,6 +106,13 @@ const WorkSection = () => {
                     <p className="mt-2 text-[15px] leading-[140%] text-[#5F5C6D]">
                       {item.description}
                     </p>
+                    <Link
+                      to={`${ROUTES.WORK_PAGE}/${item.id}`}
+                      className="mt-3 inline-flex w-fit items-center gap-2 text-[14px] font-medium text-[#5E4FC4] transition-all hover:gap-3 focus-visible:outline-2 focus-visible:outline-[#5C4ABB] focus-visible:outline-offset-4"
+                    >
+                      See case study
+                      <ButtonArrow className="stroke-current" />
+                    </Link>
                   </figcaption>
                 </figure>
               ))}

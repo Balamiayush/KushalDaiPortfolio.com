@@ -15,6 +15,12 @@ export const navLinks = [
     label: services.length,
   },
   {
+    id: "crafts",
+    title: "Crafts",
+    href: "/crafts",
+    label: null,
+  },
+  {
     id: "about",
     title: "About",
     href: "/about-us",

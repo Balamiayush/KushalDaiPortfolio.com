@@ -7,7 +7,7 @@ import { works } from "@/pages/work/data/works";
 
 const GallerySection = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-[120px]">
+    <section className="py-16 md:py-24 lg:py-30">
       <LayoutWrapper>
         <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
@@ -33,7 +33,7 @@ const GallerySection = () => {
           {works.map((item, i) => (
             <StaggerItem
               key={item.id}
-              className={`group overflow-hidden rounded-[12px] md:rounded-[16px] bg-tint-cream ${
+              className={`group overflow-hidden rounded-xl md:rounded-2xl bg-tint-cream ${
                 i % 5 === 0 ? "col-span-2 aspect-[16/10]" : "aspect-[4/5]"
               }`}
             >

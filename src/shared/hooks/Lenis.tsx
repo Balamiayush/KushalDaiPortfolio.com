@@ -1,4 +1,4 @@
-import { createContext, useContext, type ReactNode, type RefObject } from "react";
+import { createContext, use, type ReactNode, type RefObject } from "react";
 import type Lenis from "lenis";
 import { useLenis } from "./use-lenis";
 
@@ -6,7 +6,7 @@ const LenisContext = createContext<RefObject<Lenis | null> | null>(null);
 
 /** Access the live Lenis instance ref (null under reduced motion / outside provider). */
 export function useLenisRef() {
-  return useContext(LenisContext);
+  return use(LenisContext);
 }
 
 type AppLenisProps = { children: ReactNode };

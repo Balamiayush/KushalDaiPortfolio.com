@@ -14,7 +14,7 @@ export default function Section({
   wrapperClassName,
 }: SectionProps) {
   return (
-    <section className={`py-12 md:py-16 lg:py-[120px] ${className}`}>
+    <section className={`py-12 md:py-16 lg:py-30 ${className}`}>
       <LayoutWrapper className={wrapperClassName}>{children}</LayoutWrapper>
     </section>
   );

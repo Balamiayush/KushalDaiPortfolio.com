@@ -15,7 +15,7 @@ const FAQSection = () => {
   const [activeId, setActiveId] = useState<string | null>(faqData[0]?.id ?? null);
 
   return (
-    <section className='w-full py-16 md:py-24 lg:py-[120px]'>
+    <section className='w-full py-16 md:py-24 lg:py-30'>
       <LayoutWrapper>
         <div className="max-w-[900px] mx-auto">
           <h2 className="text-center font-[SansPlomb] text-[#1C1B1E] font-normal text-[clamp(32px,6vw,60px)] leading-tight tracking-[0.01em] mb-10 md:mb-14 lg:mb-16">
@@ -51,7 +51,7 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
         aria-expanded={isOpen}
         className="w-full flex items-center justify-between gap-4 text-left px-5 md:px-8 py-5 md:py-7 group"
       >
-        <span className="text-[#4A494E] text-[16px] md:text-[20px] lg:text-[24px] font-medium tracking-tight">
+        <span className="text-[#4A494E] text-base md:text-xl lg:text-2xl font-medium tracking-tight">
           Q. {faq.question}
         </span>
 
@@ -76,7 +76,7 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
             className="overflow-hidden"
           >
             <div className="px-5 md:px-8 pb-6 md:pb-8 pt-0">
-              <p className="text-[#5F5C6D] text-[15px] md:text-[17px] lg:text-[18px] leading-[1.6] max-w-[700px]">
+              <p className="text-[#5F5C6D] text-[15px] md:text-[17px] lg:text-lg leading-[1.6] max-w-[700px]">
                 {faq.answer}
               </p>
             </div>

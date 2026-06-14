@@ -59,10 +59,13 @@ const HowWeWork = () => {
             ease: "none",
             scrollTrigger: {
               trigger: container,
-              start: "top top",
+              // Pin a bit below the top so the pinned content clears the
+              // fixed header instead of tucking under it.
+              start: "top 120px",
               end: () => `+=${getDistance()}`,
               scrub: 1,
               pin: true,
+              pinSpacing: true,
               anticipatePin: 1,
               invalidateOnRefresh: true,
             },
@@ -77,7 +80,7 @@ const HowWeWork = () => {
   return (
     <section
       ref={sectionRef}
-      className="lg:min-h-[563px] py-12 md:py-16 lg:py-[60px] overflow-hidden"
+      className="lg:min-h-[563px] py-12 md:py-16 lg:py-15 overflow-hidden"
     >
       <LayoutWrapper>
         <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-[69px] sideScrollTrack w-full">
@@ -94,16 +97,16 @@ const HowWeWork = () => {
             {steps.map((step) => (
               <li
                 key={step.id}
-                className="w-full lg:w-[328.75px] lg:shrink-0 lg:h-[563px] p-6 lg:p-[24px] flex flex-col items-start justify-between gap-8 rounded-[16px] bg-[#F3F2FF] border border-[#CFCDE4]"
+                className="w-full lg:w-[328.75px] lg:shrink-0 lg:h-[563px] p-6 lg:p-6 flex flex-col items-start justify-between gap-8 rounded-2xl bg-[#F3F2FF] border border-[#CFCDE4]"
               >
-                <span className="font-[SansPlomb] text-[40px] md:text-[48px] lg:text-[56px] leading-[96%] text-[#5E4FC4]">
+                <span className="font-[SansPlomb] text-[40px] md:text-5xl lg:text-[56px] leading-[96%] text-[#5E4FC4]">
                   {step.number}
                 </span>
                 <div className="flex flex-col gap-3">
                   <h4 className="font-[SansPlomb] text-[28px] md:text-[32px] lg:text-[40px] leading-[100%] text-[#1E1E1E]">
                     {step.title}
                   </h4>
-                  <p className="text-[15px] md:text-[16px] leading-[150%] text-[#5F5C6D]">
+                  <p className="text-[15px] md:text-base leading-[150%] text-[#5F5C6D]">
                     {step.description}
                   </p>
                 </div>

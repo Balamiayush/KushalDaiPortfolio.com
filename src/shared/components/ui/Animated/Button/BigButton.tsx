@@ -4,7 +4,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 import ButtonArrow from "@/shared/components/icons/ButtonArrow";
 
 const button = tv({
-  base: "group rounded-[100px] border inline-flex items-center justify-center gap-[10px] transition-all duration-300 hover:gap-[14px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+  base: "group rounded-full border inline-flex items-center justify-center gap-2.5 transition-all duration-300 hover:gap-3.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
   variants: {
     variant: {
       primary: "bg-black text-white border-black hover:bg-black/90",
@@ -14,7 +14,7 @@ const button = tv({
       light: "bg-white text-brand border-white hover:bg-white/90",
     },
     size: {
-      sm: "px-[16px] py-[8px] min-h-[36px] text-[12px]",
+      sm: "px-4 py-2 min-h-[36px] text-xs",
       md: "w-full max-w-[240px] sm:w-[240px] h-[40px]",
       lg: "w-full max-w-[292px] sm:w-[292px] h-[48px]",
     },

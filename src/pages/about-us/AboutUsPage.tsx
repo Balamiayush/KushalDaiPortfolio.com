@@ -106,10 +106,10 @@ const SectionHeading = ({ children }: { children: ReactNode }) => (
 function StorySection() {
   return (
     <Section>
-      <div className="flex flex-col gap-10 lg:flex-row lg:gap-[80px] lg:items-start">
+      <div className="flex flex-col gap-10 lg:flex-row lg:gap-20 lg:items-start">
         <Reveal
           as="div"
-          className="lg:w-[440px] lg:shrink-0 lg:sticky lg:top-[120px] flex flex-col gap-3"
+          className="lg:w-[440px] lg:shrink-0 lg:sticky lg:top-30 flex flex-col gap-3"
         >
           <Image
             src="https://res.cloudinary.com/dfajjqglx/image/upload/f_auto,q_auto,w_1200/v1768109206/IMG_5475_qgszwk.png"
@@ -129,7 +129,7 @@ function StorySection() {
               key={text}
               as="p"
               delay={0.1 + i * 0.1}
-              className={`text-[16px] md:text-[18px] leading-[160%] ${
+              className={`text-base md:text-lg leading-[160%] ${
                 i === 1 ? "text-muted" : "text-ink"
               }`}
             >
@@ -157,7 +157,7 @@ function StatsStrip() {
             <span className="font-display text-[clamp(36px,6vw,72px)] leading-[100%] text-brand">
               <CountUp to={s.to} suffix={s.suffix} />
             </span>
-            <span className="mt-2 text-[13px] md:text-[14px] text-muted">
+            <span className="mt-2 text-[13px] md:text-sm text-muted">
               {s.label}
             </span>
           </div>
@@ -176,7 +176,7 @@ function ExpertiseSection() {
         <Reveal
           as="p"
           delay={0.1}
-          className="text-muted text-[16px] md:text-[18px] leading-[150%] max-w-[640px]"
+          className="text-muted text-base md:text-lg leading-[150%] max-w-[640px]"
         >
           A short tour of the software I lean on and the practices that shape
           every project I touch.
@@ -184,7 +184,7 @@ function ExpertiseSection() {
       </div>
 
       <div className="mb-12 md:mb-16">
-        <h3 className="font-display text-[20px] md:text-[24px] text-ink mb-5">
+        <h3 className="font-display text-xl md:text-2xl text-ink mb-5">
           Tools
         </h3>
         <div className="flex flex-wrap gap-3 md:gap-4">
@@ -195,7 +195,7 @@ function ExpertiseSection() {
               delay={i * 0.04}
               y={12}
               duration={0.5}
-              className="rounded-full border border-line-soft bg-white px-5 py-2.5 text-[14px] md:text-[15px] text-ink hover:bg-surface transition-colors"
+              className="rounded-full border border-line-soft bg-white px-5 py-2.5 text-sm md:text-[15px] text-ink hover:bg-surface transition-colors"
             >
               {tool}
             </Reveal>
@@ -204,7 +204,7 @@ function ExpertiseSection() {
       </div>
 
       <div>
-        <h3 className="font-display text-[20px] md:text-[24px] text-ink mb-5">
+        <h3 className="font-display text-xl md:text-2xl text-ink mb-5">
           Methods
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -218,10 +218,10 @@ function ExpertiseSection() {
               <span className="font-display text-[40px] leading-[100%] text-brand">
                 {method.n}
               </span>
-              <h4 className="font-display text-[24px] md:text-[28px] text-ink">
+              <h4 className="font-display text-2xl md:text-[28px] text-ink">
                 {method.title}
               </h4>
-              <p className="text-muted text-[15px] md:text-[16px] leading-[150%]">
+              <p className="text-muted text-[15px] md:text-base leading-[150%]">
                 {method.body}
               </p>
             </Card>
@@ -250,13 +250,13 @@ function ValuesSection() {
             delay={i * 0.08}
             tone="outline"
             padding="none"
-            className="p-6 lg:p-[24px] flex flex-col justify-between gap-8 min-h-[260px] lg:min-h-[320px]"
+            className="p-6 lg:p-6 flex flex-col justify-between gap-8 min-h-[260px] lg:min-h-[320px]"
           >
-            <span className="font-display text-[40px] lg:text-[48px] leading-[100%] text-brand">
+            <span className="font-display text-[40px] lg:text-5xl leading-[100%] text-brand">
               {v.n}
             </span>
             <div className="flex flex-col gap-3">
-              <h3 className="font-display text-[20px] md:text-[22px] text-ink">
+              <h3 className="font-display text-xl md:text-[22px] text-ink">
                 {v.title}
               </h3>
               <p className="text-muted text-[15px] leading-[150%]">{v.body}</p>
@@ -271,7 +271,7 @@ function ValuesSection() {
 function BeyondSection() {
   return (
     <Section>
-      <div className="flex flex-col gap-10 lg:flex-row lg:gap-[80px]">
+      <div className="flex flex-col gap-10 lg:flex-row lg:gap-20">
         <div className="lg:w-[420px] lg:shrink-0 flex flex-col gap-4">
           <Eyebrow>Off the screen</Eyebrow>
           <Reveal
@@ -290,10 +290,10 @@ function BeyondSection() {
               delay={i * 0.1}
               className="border-t border-line py-5 md:py-6 last:border-b"
             >
-              <dt className="font-display text-[20px] md:text-[24px] text-ink mb-2">
+              <dt className="font-display text-xl md:text-2xl text-ink mb-2">
                 {item.label}
               </dt>
-              <dd className="text-muted text-[15px] md:text-[16px] leading-[150%] max-w-[560px]">
+              <dd className="text-muted text-[15px] md:text-base leading-[150%] max-w-[560px]">
                 {item.body}
               </dd>
             </Reveal>
@@ -306,8 +306,8 @@ function BeyondSection() {
 
 function ClosingCTA() {
   return (
-    <section className="px-3 md:px-[24px] pb-3 md:pb-[24px]">
-      <div className="rounded-[20px] md:rounded-[24px] bg-tint-cream px-6 py-12 md:p-12 lg:p-[80px] min-h-[420px] md:min-h-[520px] flex flex-col gap-8 md:gap-10">
+    <section className="px-3 md:px-6 pb-3 md:pb-6">
+      <div className="rounded-[20px] md:rounded-3xl bg-tint-cream px-6 py-12 md:p-12 lg:p-20 min-h-[420px] md:min-h-[520px] flex flex-col gap-8 md:gap-10">
         <div className="flex flex-col gap-4">
           <Eyebrow>What&rsquo;s next</Eyebrow>
           <Reveal
@@ -324,7 +324,7 @@ function ClosingCTA() {
           <Reveal
             as="p"
             delay={0.12}
-            className="text-ink text-[16px] md:text-[18px] leading-[150%] max-w-[520px]"
+            className="text-ink text-base md:text-lg leading-[150%] max-w-[520px]"
           >
             I&rsquo;m currently taking on two new projects this quarter — brand
             systems, product design, or a focused mentorship engagement. Tell me
@@ -377,7 +377,7 @@ export default function AboutUsPage() {
           onMount
           delay={0.4}
           y={12}
-          className="mt-8 text-[13px] md:text-[14px] text-muted tracking-[0.01em]"
+          className="mt-8 text-[13px] md:text-sm text-muted tracking-[0.01em]"
         >
           Based in Kathmandu, Nepal — open to remote work worldwide.
         </Reveal>
