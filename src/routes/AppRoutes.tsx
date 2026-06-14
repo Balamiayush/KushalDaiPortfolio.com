@@ -10,6 +10,8 @@ const LandingPage = lazy(() => import("@/pages/landing/LandingPage"));
 const AboutUsPage = lazy(() => import("@/pages/about-us/AboutUsPage"));
 const ServicesPage = lazy(() => import("@/pages/services/ServicesPage"));
 const WorkPage = lazy(() => import("@/pages/work/WorkPage"));
+const WorkDetailPage = lazy(() => import("@/pages/work/WorkDetailPage"));
+const CraftsPage = lazy(() => import("@/pages/crafts/CraftsPage"));
 const ContactPage = lazy(() => import("@/pages/contact/ContactPage"));
 
 const withSuspense = (Component: ComponentType) => (
@@ -38,6 +40,14 @@ const AppRoutes = createBrowserRouter([
       {
         path: ROUTES.WORK_PAGE,
         element: withSuspense(WorkPage),
+      },
+      {
+        path: `${ROUTES.WORK_PAGE}/:id`,
+        element: withSuspense(WorkDetailPage),
+      },
+      {
+        path: ROUTES.CRAFTS_PAGE,
+        element: withSuspense(CraftsPage),
       },
       {
         path: ROUTES.CONTACT_PAGE,
