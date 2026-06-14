@@ -7,8 +7,8 @@ export default function MainNavbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-3 md:px-6 lg:px-[24px] transition-[padding] duration-500 ease-out ${
-        scrolled ? "pt-2 md:pt-3" : "pt-3 md:pt-[24px]"
+      className={`fixed inset-x-0 top-0 z-50 px-3 md:px-6 lg:px-6 transition-[padding] duration-500 ease-out ${
+        scrolled ? "pt-2 md:pt-3" : "pt-3 md:pt-6"
       }`}
     >
       <div

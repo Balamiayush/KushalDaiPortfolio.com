@@ -34,7 +34,7 @@ export default function NavLinks() {
         <KushalDaiIcon />
       </Link>
 
-      <ul className="hidden lg:flex items-center gap-8 xl:gap-[48px]">
+      <ul className="hidden lg:flex items-center gap-8 xl:gap-12">
         {navLinks.map((navLink) => (
           <li key={navLink.id} className="flex items-center gap-3">
             <Link to={navLink.href}>
@@ -48,28 +48,28 @@ export default function NavLinks() {
         ))}
       </ul>
 
-      <div className="hidden lg:flex items-center gap-6 xl:gap-[32px]">
+      <div className="hidden lg:flex items-center gap-6 xl:gap-8">
         <div className="flex items-start gap-2">
           <div
             aria-hidden="true"
-            className="bg-[#008C07] size-[8px] rounded-full mt-[2px] outline-2 outline-[#008C0733]"
+            className="bg-[#008C07] size-2 rounded-full mt-0.5 outline-2 outline-[#008C0733]"
           />
           <div className="flex flex-col leading-tight">
-            <p className="font-semibold text-[14px] text-[#1E1E1E]">
+            <p className="font-semibold text-sm text-[#1E1E1E]">
               Available for Project
             </p>
-            <p className="text-[14px] text-[#5A5766]">Early Dec 2025</p>
+            <p className="text-sm text-[#5A5766]">Early Dec 2025</p>
           </div>
         </div>
 
         <div className="flex flex-col leading-tight">
-          <p className="font-semibold text-[14px] text-[#1E1E1E]">{time}</p>
-          <p className="text-[14px] text-[#5A5766]">Kathmandu, Nepal</p>
+          <p className="font-semibold text-sm text-[#1E1E1E]">{time}</p>
+          <p className="text-sm text-[#5A5766]">Kathmandu, Nepal</p>
         </div>
 
         <Link
           to="/contact"
-          className="flex items-center gap-2 text-white px-[16px] py-[12px] bg-[#5E4FC4] rounded-[999px]"
+          className="flex items-center gap-2 text-white px-4 py-3 bg-[#5E4FC4] rounded-full"
         >
           <span>Let&rsquo;s Talk</span>
           <ButtonArrow />
@@ -153,25 +153,25 @@ export default function NavLinks() {
             <div className="flex items-start gap-2">
               <div
                 aria-hidden="true"
-                className="bg-[#008C07] size-[8px] rounded-full mt-[6px] outline-2 outline-[#008C0733]"
+                className="bg-[#008C07] size-2 rounded-full mt-1.5 outline-2 outline-[#008C0733]"
               />
               <div className="flex flex-col leading-tight">
-                <p className="font-semibold text-[16px] text-[#1E1E1E]">
+                <p className="font-semibold text-base text-[#1E1E1E]">
                   Available for Project
                 </p>
-                <p className="text-[14px] text-[#5A5766]">Early Dec 2025</p>
+                <p className="text-sm text-[#5A5766]">Early Dec 2025</p>
               </div>
             </div>
 
             <div className="flex flex-col leading-tight">
-              <p className="font-semibold text-[16px] text-[#1E1E1E]">{time}</p>
-              <p className="text-[14px] text-[#5A5766]">Kathmandu, Nepal</p>
+              <p className="font-semibold text-base text-[#1E1E1E]">{time}</p>
+              <p className="text-sm text-[#5A5766]">Kathmandu, Nepal</p>
             </div>
 
             <Link
               to="/contact"
               onClick={closeMenu}
-              className="inline-flex items-center justify-center gap-2 text-white px-6 py-4 bg-[#5E4FC4] rounded-full text-[18px]"
+              className="inline-flex items-center justify-center gap-2 text-white px-6 py-4 bg-[#5E4FC4] rounded-full text-lg"
             >
               <span>Let&rsquo;s Talk</span>
               <ButtonArrow />

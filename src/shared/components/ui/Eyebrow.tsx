@@ -22,7 +22,7 @@ export default function Eyebrow({
       delay={delay}
       y={12}
       duration={0.5}
-      className={`text-[12px] md:text-[13px] uppercase tracking-[0.18em] ${className}`}
+      className={`text-xs md:text-[13px] uppercase tracking-[0.18em] ${className}`}
     >
       {children}
     </Reveal>

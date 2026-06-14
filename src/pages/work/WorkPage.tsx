@@ -25,7 +25,7 @@ function Tile({
   return (
     <article className="flex flex-col">
       <figure
-        className={`group relative overflow-hidden rounded-[16px] md:rounded-[20px] bg-tint-cream ${
+        className={`group relative overflow-hidden rounded-2xl md:rounded-[20px] bg-tint-cream ${
           featured ? "aspect-[16/9]" : "aspect-[4/3]"
         }`}
       >
@@ -41,17 +41,17 @@ function Tile({
         <h3
           className={`font-display leading-[100%] tracking-[0.01em] text-ink ${
             featured
-              ? "text-[28px] md:text-[40px] lg:text-[48px]"
+              ? "text-[28px] md:text-[40px] lg:text-5xl"
               : "text-[22px] md:text-[26px]"
           }`}
         >
           {item.title}
         </h3>
-        <p className="shrink-0 text-[12px] md:text-[13px] tracking-[0.08em] uppercase text-muted">
+        <p className="shrink-0 text-xs md:text-[13px] tracking-[0.08em] uppercase text-muted">
           {String(index + 1).padStart(2, "0")} / {total}
         </p>
       </div>
-      <p className="mt-1 text-[13px] md:text-[14px] text-muted">{item.type}</p>
+      <p className="mt-1 text-[13px] md:text-sm text-muted">{item.type}</p>
     </article>
   );
 }
@@ -80,13 +80,13 @@ export default function WorkPage() {
           <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[110%] tracking-[0.01em] text-ink max-w-[640px]">
             Six projects, one through-line — clarity.
           </h2>
-          <p className="text-[14px] md:text-[15px] leading-[140%] text-muted max-w-[420px]">
+          <p className="text-sm md:text-[15px] leading-[140%] text-muted max-w-[420px]">
             Each piece below is paired with the discipline it leans on most.
             Case studies are on their way.
           </p>
         </Reveal>
 
-        <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-line pt-4 text-[12px] tracking-[0.08em] uppercase text-muted">
+        <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-line pt-4 text-xs tracking-[0.08em] uppercase text-muted">
           <span>01 — {total}</span>
           <span>Branding · Product · Visuals</span>
         </div>
@@ -126,7 +126,7 @@ export default function WorkPage() {
           <Reveal
             as="p"
             delay={0.15}
-            className="mt-6 max-w-[520px] text-muted text-[15px] md:text-[16px] leading-[140%]"
+            className="mt-6 max-w-[520px] text-muted text-[15px] md:text-base leading-[140%]"
           >
             No project ships without a reason behind every choice. That&rsquo;s
             the only way I know how to design.
@@ -134,15 +134,15 @@ export default function WorkPage() {
         </div>
       </Section>
 
-      <section className="px-3 md:px-[24px] pb-3 md:pb-[24px]">
+      <section className="px-3 md:px-6 pb-3 md:pb-6">
         <Reveal
           as="div"
           y={32}
           duration={0.7}
-          className="bg-brand text-white rounded-[20px] md:rounded-[24px] p-8 md:p-12 lg:p-[64px] flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
+          className="bg-brand text-white rounded-[20px] md:rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
         >
           <div className="flex flex-col items-start">
-            <p className="text-[12px] tracking-[0.08em] uppercase text-white/85">
+            <p className="text-xs tracking-[0.08em] uppercase text-white/85">
               Next chapter
             </p>
             <h2 className="font-display text-[clamp(40px,6vw,80px)] leading-[92%] tracking-[0.01em] mt-4">
@@ -150,7 +150,7 @@ export default function WorkPage() {
               <br />
               worth making well?
             </h2>
-            <p className="mt-5 max-w-[460px] text-white/85 text-[15px] md:text-[16px] leading-[140%]">
+            <p className="mt-5 max-w-[460px] text-white/85 text-[15px] md:text-base leading-[140%]">
               Brand systems, product surfaces, mentorship, or something
               in-between — tell me what you&rsquo;re building and we&rsquo;ll
               find the right shape together.

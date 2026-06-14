@@ -21,7 +21,7 @@ export default function CraftsPage() {
           <Reveal
             as="p"
             onMount
-            className="text-[12px] uppercase tracking-[0.18em] text-accent"
+            className="text-xs uppercase tracking-[0.18em] text-accent"
           >
             Playground
           </Reveal>
@@ -38,7 +38,7 @@ export default function CraftsPage() {
             as="p"
             onMount
             delay={0.15}
-            className="mt-6 max-w-[560px] text-[16px] md:text-[18px] leading-[150%] text-muted"
+            className="mt-6 max-w-[560px] text-base md:text-lg leading-[150%] text-muted"
           >
             Off-the-clock experiments — posters, logos, UI studies, and the
             small things I make to keep the hands sharp and the ideas flowing.
@@ -52,7 +52,7 @@ export default function CraftsPage() {
             <div key={craft.id} className="mb-4 break-inside-avoid md:mb-5">
               <Reveal
                 as="div"
-                className="group overflow-hidden rounded-[12px] md:rounded-[16px] bg-tint-cream"
+                className="group overflow-hidden rounded-xl md:rounded-2xl bg-tint-cream"
               >
                 <Image src={craft.src} alt={craft.alt} ratio={craft.ratio} zoom />
               </Reveal>

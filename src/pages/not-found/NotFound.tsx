@@ -17,10 +17,10 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="min-h-screen p-3 md:p-[24px]">
+    <div className="min-h-screen p-3 md:p-6">
       <section
         aria-labelledby="not-found-heading"
-        className="relative overflow-hidden rounded-[20px] md:rounded-[24px] bg-tint-pink min-h-[calc(100vh-24px)] md:min-h-[calc(100vh-48px)] flex flex-col items-center justify-center text-center px-5 md:px-8 lg:px-12 pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24"
+        className="relative overflow-hidden rounded-[20px] md:rounded-3xl bg-tint-pink min-h-[calc(100vh-24px)] md:min-h-[calc(100vh-48px)] flex flex-col items-center justify-center text-center px-5 md:px-8 lg:px-12 pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24"
       >
         <m.div
           initial={{ opacity: 0 }}

@@ -11,15 +11,15 @@ const card = tv({
         "border-line transition-colors hover:border-line-soft hover:bg-surface",
     },
     radius: {
-      md: "rounded-[16px]",
+      md: "rounded-2xl",
       lg: "rounded-[20px]",
-      xl: "rounded-[20px] md:rounded-[24px]",
+      xl: "rounded-[20px] md:rounded-3xl",
     },
     padding: {
       none: "",
       sm: "p-5 md:p-6",
       md: "p-6 md:p-8 lg:p-10",
-      lg: "p-6 md:p-8 lg:p-[32px]",
+      lg: "p-6 md:p-8 lg:p-8",
     },
   },
   defaultVariants: { tone: "surface", radius: "lg", padding: "md" },

@@ -31,7 +31,8 @@ const Journey = () => {
           stagger: 1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top top",
+            // Pin below the fixed header so the text doesn't tuck under it.
+            start: "top 120px",
             end: "+=120%",
             scrub: 1.2,
             pin: true,

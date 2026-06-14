@@ -38,14 +38,14 @@ function Frame({
   if (tint) {
     return (
       <div
-        className={`group overflow-hidden rounded-[16px] md:rounded-[20px] ${TINTS[tint]} p-4 md:p-6`}
+        className={`group overflow-hidden rounded-2xl md:rounded-[20px] ${TINTS[tint]} p-4 md:p-6`}
       >
         <Image src={src} alt={alt} ratio={ratio} rounded="md" zoom />
       </div>
     );
   }
   return (
-    <div className="group overflow-hidden rounded-[16px] md:rounded-[20px]">
+    <div className="group overflow-hidden rounded-2xl md:rounded-[20px]">
       <Image src={src} alt={alt} ratio={ratio} zoom />
     </div>
   );
@@ -54,10 +54,10 @@ function Frame({
 function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-[12px] uppercase tracking-[0.12em] text-muted">
+      <span className="text-xs uppercase tracking-[0.12em] text-muted">
         {label}
       </span>
-      <span className="text-[14px] md:text-[15px] text-ink">{value}</span>
+      <span className="text-sm md:text-[15px] text-ink">{value}</span>
     </div>
   );
 }
@@ -69,7 +69,7 @@ function CaseHero({ study }: { study: CaseStudy }) {
         <Reveal as="div" onMount>
           <Link
             to={ROUTES.WORK_PAGE}
-            className="inline-flex items-center gap-2 text-[14px] text-muted transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+            className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
           >
             <span aria-hidden>&larr;</span> All work
           </Link>
@@ -78,7 +78,7 @@ function CaseHero({ study }: { study: CaseStudy }) {
           as="p"
           onMount
           delay={0.05}
-          className="mt-8 text-[12px] uppercase tracking-[0.18em] text-accent"
+          className="mt-8 text-xs uppercase tracking-[0.18em] text-accent"
         >
           {study.category}
         </Reveal>
@@ -95,7 +95,7 @@ function CaseHero({ study }: { study: CaseStudy }) {
           as="p"
           onMount
           delay={0.2}
-          className="mt-6 max-w-[640px] text-[16px] md:text-[18px] leading-[150%] text-ink"
+          className="mt-6 max-w-[640px] text-base md:text-lg leading-[150%] text-ink"
         >
           {study.overview}
         </Reveal>
@@ -112,8 +112,8 @@ function CaseHero({ study }: { study: CaseStudy }) {
         </Reveal>
       </LayoutWrapper>
 
-      <div className="mt-10 px-3 md:mt-14 md:px-[24px]">
-        <figure className="group relative aspect-[16/10] overflow-hidden rounded-[20px] md:rounded-[24px] lg:aspect-[2/1]">
+      <div className="mt-10 px-3 md:mt-14 md:px-6">
+        <figure className="group relative aspect-[16/10] overflow-hidden rounded-[20px] md:rounded-3xl lg:aspect-[2/1]">
           <Parallax distance={40} className="absolute inset-0">
             <Image
               src={study.cover}
@@ -153,7 +153,7 @@ function Block({ block }: { block: CaseBlock }) {
             {block.eyebrow && (
               <Reveal
                 as="p"
-                className="mb-4 text-[12px] uppercase tracking-[0.18em] text-accent"
+                className="mb-4 text-xs uppercase tracking-[0.18em] text-accent"
               >
                 {block.eyebrow}
               </Reveal>
@@ -170,7 +170,7 @@ function Block({ block }: { block: CaseBlock }) {
             <Reveal
               as="p"
               delay={0.1}
-              className="text-[16px] md:text-[18px] leading-[160%] text-muted"
+              className="text-base md:text-lg leading-[160%] text-muted"
             >
               {block.body}
             </Reveal>
@@ -220,7 +220,7 @@ function Block({ block }: { block: CaseBlock }) {
               &ldquo;{block.body}&rdquo;
             </blockquote>
             {block.cite && (
-              <p className="mt-6 text-[14px] uppercase tracking-[0.08em] text-muted">
+              <p className="mt-6 text-sm uppercase tracking-[0.08em] text-muted">
                 {block.cite}
               </p>
             )}
@@ -258,13 +258,13 @@ function ComingSoon({ title }: { title?: string }) {
     <div className="flex min-h-[70vh] items-center pt-28 md:pt-32">
       <Section>
         <Reveal as="div" onMount className="max-w-[640px]">
-          <p className="mb-4 text-[12px] uppercase tracking-[0.18em] text-accent">
+          <p className="mb-4 text-xs uppercase tracking-[0.18em] text-accent">
             Case study
           </p>
           <h1 className="mb-6 font-display text-[clamp(40px,7vw,88px)] leading-[95%] text-display">
             {title ?? "Coming soon"}
           </h1>
-          <p className="mb-8 text-[16px] md:text-[18px] leading-[150%] text-muted">
+          <p className="mb-8 text-base md:text-lg leading-[150%] text-muted">
             The full write-up for this project is on its way. In the meantime,
             take a look at the rest of the work.
           </p>
